@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Card, Tag, Button } from 'antd';
-import { TrophyOutlined, CalendarOutlined, TeamOutlined } from '@ant-design/icons';
+import { Card, Tag, Button, Spin, Alert, Empty } from 'antd';
+import { TrophyOutlined, CalendarOutlined, TeamOutlined, LoadingOutlined } from '@ant-design/icons';
 import { FiAward, FiUsers, FiCalendar, FiExternalLink, FiEye } from 'react-icons/fi';
+import { hackathonAPI } from '../services/api';
 import './Hackathons.css';
 
 const Hackathons = () => {
@@ -12,99 +13,120 @@ const Hackathons = () => {
     triggerOnce: true
   });
 
-  const hackathons = [
+  const [hackathons, setHackathons] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fallback data in case API fails
+  const fallbackHackathons = [
     {
       id: 1,
       title: "Smart City Solutions Hackathon",
-      event: "TechFest 2024",
+      event_name: "TechFest 2024",
       position: "1st Place",
-      date: "March 2024",
+      start_date: "2024-03-15",
       description: "Developed an AI-powered traffic management system that reduces congestion by 30% using real-time data analysis.",
-      technologies: ["React", "Python", "TensorFlow", "MongoDB"],
-      team: "4 members",
-      prize: "₹50,000",
-      image: "/hackathon1.jpg",
-      link: "https://github.com/sreecharan/smart-traffic"
+      technologies: [
+        { name: "React" }, { name: "Python" }, { name: "TensorFlow" }, { name: "MongoDB" }
+      ],
+      team_size_actual: 4,
+      prize_amount: 50000,
+      project_url: "https://github.com/sreecharan/smart-traffic"
     },
     {
       id: 2,
       title: "FinTech Innovation Challenge",
-      event: "Banking Summit 2024",
+      event_name: "Banking Summit 2024",
       position: "1st Place",
-      date: "February 2024",
+      start_date: "2024-02-20",
       description: "Created a blockchain-based micro-lending platform for rural communities with 99.9% security rating.",
-      technologies: ["Blockchain", "Solidity", "React", "Node.js"],
-      team: "3 members",
-      prize: "₹75,000",
-      image: "/hackathon2.jpg",
-      link: "https://github.com/sreecharan/rural-lending"
+      technologies: [
+        { name: "Blockchain" }, { name: "Solidity" }, { name: "React" }, { name: "Node.js" }
+      ],
+      team_size_actual: 3,
+      prize_amount: 75000,
+      project_url: "https://github.com/sreecharan/rural-lending"
     },
     {
       id: 3,
       title: "Healthcare AI Hackathon",
-      event: "MedTech 2023",
+      event_name: "MedTech 2023",
       position: "2nd Place",
-      date: "December 2023",
+      start_date: "2023-12-10",
       description: "Built an AI diagnostic tool for early detection of diseases using medical imaging with 95% accuracy.",
-      technologies: ["Python", "PyTorch", "Flask", "OpenCV"],
-      team: "5 members",
-      prize: "₹30,000",
-      image: "/hackathon3.jpg",
-      link: "https://github.com/sreecharan/medical-ai"
-    },
-    {
-      id: 4,
-      title: "Sustainable Tech Challenge",
-      event: "EcoHack 2023",
-      position: "1st Place",
-      date: "November 2023",
-      description: "Designed an IoT-based waste management system that optimizes collection routes and reduces costs by 40%.",
-      technologies: ["IoT", "Arduino", "React", "Firebase"],
-      team: "4 members",
-      prize: "₹45,000",
-      image: "/hackathon4.jpg",
-      link: "https://github.com/sreecharan/smart-waste"
-    },
-    {
-      id: 5,
-      title: "EdTech Innovation Sprint",
-      event: "EduTech 2023",
-      position: "1st Place",
-      date: "October 2023",
-      description: "Developed an AR-based learning platform that increases student engagement by 60% in STEM subjects.",
-      technologies: ["Unity", "C#", "AR Core", "Firebase"],
-      team: "3 members",
-      prize: "₹35,000",
-      image: "/hackathon5.jpg",
-      link: "https://github.com/sreecharan/ar-learning"
-    },
-    {
-      id: 6,
-      title: "Cybersecurity Defense Challenge",
-      event: "SecureTech 2023",
-      position: "2nd Place",
-      date: "September 2023",
-      description: "Created an advanced threat detection system using machine learning to identify cyber attacks in real-time.",
-      technologies: ["Python", "Scikit-learn", "Docker", "Kafka"],
-      team: "4 members",
-      prize: "₹25,000",
-      image: "/hackathon6.jpg",
-      link: "https://github.com/sreecharan/threat-detection"
-    },
-    {
-      id: 7,
-      title: "Agriculture Tech Hackathon",
-      event: "AgriTech 2023",
-      position: "1st Place",
-      date: "August 2023",
-      description: "Built a drone-based crop monitoring system with AI analysis that helps farmers increase yield by 25%.",
-      technologies: ["Python", "OpenCV", "Raspberry Pi", "React"],
-      team: "5 members",
-      prize: "₹40,000",
-      image: "/hackathon7.jpg",
-      link: "https://github.com/sreecharan/agri-drone"
+      technologies: [
+        { name: "Python" }, { name: "PyTorch" }, { name: "Flask" }, { name: "OpenCV" }
+      ],
+      team_size_actual: 5,
+      prize_amount: 30000,
+      project_url: "https://github.com/sreecharan/ai-diagnostic"
     }
   ];
+
+  useEffect(() => {
+    const fetchHackathons = async () => {
+      try {
+        setLoading(true);
+        const response = await hackathonAPI.getAllHackathons();
+        
+        if (response.success && response.hackathons.length > 0) {
+          setHackathons(response.hackathons);
+        } else {
+          // Use fallback data if no hackathons from API
+          setHackathons(fallbackHackathons);
+        }
+        setError(null);
+      } catch (err) {
+        console.error('Failed to fetch hackathons:', err);
+        setError('Failed to load hackathons from server. Showing sample data.');
+        setHackathons(fallbackHackathons);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHackathons();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="hackathons-section">
+        <div className="container">
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            minHeight: '300px' 
+          }}>
+            <Spin 
+              size="large" 
+              indicator={<LoadingOutlined style={{ fontSize: 48, color: 'var(--accent-color)' }} spin />}
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error && hackathons.length === 0) {
+    return (
+      <section className="hackathons-section">
+        <div className="container">
+          <Alert
+            message="Unable to Load Hackathons"
+            description={error}
+            type="warning"
+            showIcon
+            style={{ margin: '2rem 0' }}
+          />
+          <Empty 
+            description="No hackathons available"
+            style={{ margin: '2rem 0' }}
+          />
+        </div>
+      </section>
+    );
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -128,18 +150,25 @@ const Hackathons = () => {
     }
   };
 
-  const getPositionColor = (position) => {
-    if (position.includes('1st')) return '#gold';
-    if (position.includes('2nd')) return '#silver';
-    if (position.includes('3rd')) return '#bronze';
-    return '#1890ff';
-  };
-
   const getPositionIcon = (position) => {
     if (position.includes('1st')) return '🥇';
     if (position.includes('2nd')) return '🥈';
     if (position.includes('3rd')) return '🥉';
     return '🏆';
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return 'Date TBD';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long' 
+    });
+  };
+
+  const formatPrize = (amount) => {
+    if (!amount) return 'Prize TBD';
+    return `₹${amount.toLocaleString()}`;
   };
 
   return (
@@ -206,33 +235,33 @@ const Hackathons = () => {
                   </Button>,
                   <Button 
                     icon={<FiExternalLink />}
-                    href={hackathon.link}
+                    href={hackathon.project_url || hackathon.github_url}
                     target="_blank"
                     className="github-btn"
                   >
-                    GitHub
+                    {hackathon.project_url ? 'Project' : 'GitHub'}
                   </Button>
                 ]}
               >
                 <div className="hackathon-header">
                   <h3 className="hackathon-title">{hackathon.title}</h3>
                   <Tag color="blue" className="event-tag">
-                    {hackathon.event}
+                    {hackathon.event_name}
                   </Tag>
                 </div>
 
                 <div className="hackathon-meta">
                   <div className="meta-item">
                     <CalendarOutlined />
-                    <span>{hackathon.date}</span>
+                    <span>{formatDate(hackathon.start_date)}</span>
                   </div>
                   <div className="meta-item">
                     <TeamOutlined />
-                    <span>{hackathon.team}</span>
+                    <span>{hackathon.team_size_actual || hackathon.team_size || 'TBD'} members</span>
                   </div>
                   <div className="meta-item prize">
                     <TrophyOutlined />
-                    <span>{hackathon.prize}</span>
+                    <span>{formatPrize(hackathon.prize_amount)}</span>
                   </div>
                 </div>
 
@@ -241,13 +270,13 @@ const Hackathons = () => {
                 </p>
 
                 <div className="hackathon-technologies">
-                  {hackathon.technologies.map((tech, techIndex) => (
+                  {(hackathon.technologies || []).map((tech, techIndex) => (
                     <Tag 
                       key={techIndex} 
                       className="tech-tag"
                       color={`hsl(${techIndex * 60}, 70%, 50%)`}
                     >
-                      {tech}
+                      {typeof tech === 'string' ? tech : tech.name}
                     </Tag>
                   ))}
                 </div>
@@ -263,19 +292,25 @@ const Hackathons = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <div className="stat-item">
-            <div className="stat-number">7</div>
+            <div className="stat-number">{hackathons.length}</div>
             <div className="stat-label">Hackathons Won</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">5</div>
+            <div className="stat-number">
+              {hackathons.filter(h => h.position?.includes('1st')).length}
+            </div>
             <div className="stat-label">First Places</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">₹3L+</div>
+            <div className="stat-number">
+              ₹{Math.round(hackathons.reduce((sum, h) => sum + (h.prize_amount || 0), 0) / 1000)}K+
+            </div>
             <div className="stat-label">Total Prize Money</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">30+</div>
+            <div className="stat-number">
+              {hackathons.reduce((sum, h) => sum + (h.team_size_actual || h.team_size || 0), 0)}+
+            </div>
             <div className="stat-label">Team Members</div>
           </div>
         </motion.div>
