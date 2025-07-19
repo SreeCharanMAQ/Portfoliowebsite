@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMessageCircle, FiX, FiSend, FiUser, FiBot } from 'react-icons/fi';
+import { FiMessageCircle, FiX, FiSend, FiUser, FiCpu } from 'react-icons/fi';
 import './Chatbot.css';
 
 const Chatbot = () => {
@@ -141,7 +141,7 @@ const Chatbot = () => {
             {/* Header */}
             <div className="chatbot-header">
               <div className="chatbot-avatar">
-                <FiBot />
+                <FiCpu />
               </div>
               <div className="chatbot-info">
                 <h3>Portfolio Assistant</h3>
@@ -166,7 +166,7 @@ const Chatbot = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="message-avatar">
-                    {message.sender === 'user' ? <FiUser /> : <FiBot />}
+                    {message.sender === 'user' ? <FiUser /> : <FiCpu />}
                   </div>
                   <div className="message-content">
                     <div className="message-text">{message.text}</div>
@@ -195,7 +195,7 @@ const Chatbot = () => {
                   animate={{ opacity: 1 }}
                 >
                   <div className="message-avatar">
-                    <FiBot />
+                    <FiCpu />
                   </div>
                   <div className="message-content">
                     <div className="typing-indicator">

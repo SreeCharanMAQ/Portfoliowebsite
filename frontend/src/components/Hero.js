@@ -382,7 +382,7 @@ const Hero = ({ triggerConfetti }) => {
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <FiMail />
+                            <FiMail />
               </motion.div>
             </motion.a>
           </motion.div>
@@ -396,16 +396,47 @@ const Hero = ({ triggerConfetti }) => {
         >
           <div className="image-container animate-morphing hover-lift">
             <div className="image-placeholder glass-effect">
-              <LottieAnimation 
-                width={200} 
-                height={200}
-                className="hero-lottie"
+              <img 
+                src="/profile.jpg"
+                alt="K Sree Charan"
+                className="profile-photo professional-photo"
+                loading="eager"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '50%',
+                  display: 'block',
+                  position: 'relative',
+                  zIndex: 5
+                }}
+                onError={(e) => {
+                  console.error('Image failed to load:', e);
+                  console.error('Image src:', e.target.src);
+                  e.target.style.border = '3px solid red';
+                  e.target.alt = 'Image failed to load';
+                }}
+                onLoad={(e) => {
+                  console.log('Image loaded successfully!');
+                  console.log('Image src:', e.target.src);
+                  console.log('Image dimensions:', e.target.naturalWidth, 'x', e.target.naturalHeight);
+                }}
               />
               <span style={{ 
                 position: 'absolute', 
-                bottom: '10px', 
-                fontSize: '0.9rem',
-                color: 'var(--text-secondary)'
+                bottom: '15px', 
+                left: '50%',
+                transform: 'translateX(-50%)',
+                fontSize: '0.85rem',
+                fontWeight: '600',
+                color: 'var(--text-primary)',
+                background: 'rgba(0, 0, 0, 0.7)',
+                padding: '6px 12px',
+                borderRadius: '20px',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                whiteSpace: 'nowrap',
+                zIndex: 10
               }}>
                 K Sree Charan
               </span>

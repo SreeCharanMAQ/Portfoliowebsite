@@ -14,6 +14,8 @@ import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
+import Chatbot from './components/Chatbot';
+import VoiceNavigation from './components/VoiceNavigation';
 import './App.css';
 
 function App() {
@@ -139,6 +141,8 @@ function App() {
             </motion.main>
             
             <ScrollToTop />
+            <Chatbot />
+            <VoiceNavigation />
           </>
         )}
       </div>
