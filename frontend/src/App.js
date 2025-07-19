@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import confetti from 'canvas-confetti';
+import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -112,34 +113,36 @@ function App() {
   };
 
   return (
-    <div className={`App ${theme}`}>
-      <AnimatePresence>
-        {loading && <LoadingScreen />}
-      </AnimatePresence>
-      
-      {!loading && (
-        <>
-          <ParticleBackground />
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
-          
-          <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Hero triggerConfetti={triggerCelebrationConfetti} />
-            <About />
-            <Skills />
-            <Experience triggerConfetti={triggerCelebrationConfetti} />
-            <Projects triggerConfetti={triggerCelebrationConfetti} />
-            <Education />
-            <Contact triggerConfetti={triggerCelebrationConfetti} />
-          </motion.main>
-          
-          <ScrollToTop />
-        </>
-      )}
-    </div>
+    <AuthProvider>
+      <div className={`App ${theme}`}>
+        <AnimatePresence>
+          {loading && <LoadingScreen />}
+        </AnimatePresence>
+        
+        {!loading && (
+          <>
+            <ParticleBackground />
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
+            
+            <motion.main
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Hero triggerConfetti={triggerCelebrationConfetti} />
+              <About />
+              <Skills />
+              <Experience triggerConfetti={triggerCelebrationConfetti} />
+              <Projects triggerConfetti={triggerCelebrationConfetti} />
+              <Education />
+              <Contact triggerConfetti={triggerCelebrationConfetti} />
+            </motion.main>
+            
+            <ScrollToTop />
+          </>
+        )}
+      </div>
+    </AuthProvider>
   );
 }
 

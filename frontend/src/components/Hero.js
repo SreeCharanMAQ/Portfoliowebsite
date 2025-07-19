@@ -155,23 +155,15 @@ const Hero = ({ triggerConfetti }) => {
             </motion.span>{' '}
             <motion.span 
               className="text-gradient"
-              animate={{ 
-                background: [
-                  'linear-gradient(45deg, #1890ff, #722ed1)',
-                  'linear-gradient(45deg, #722ed1, #52c41a)',
-                  'linear-gradient(45deg, #52c41a, #fa541c)',
-                  'linear-gradient(45deg, #fa541c, #1890ff)'
-                ]
-              }}
-              style={{
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent'
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ 
                 scale: 1.1,
                 textShadow: '0 0 20px rgba(24, 144, 255, 0.5)'
+              }}
+              style={{
+                background: 'linear-gradient(45deg, #1890ff, #722ed1)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent'
               }}
             >
               K Sree Charan

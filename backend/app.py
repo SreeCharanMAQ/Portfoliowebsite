@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import os
 import logging
 from datetime import datetime
+from auth import AuthManager, token_required
+from chatbot import portfolio_chatbot
 
 # Load environment variables
 load_dotenv()
@@ -22,6 +24,9 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
+
+# Initialize authentication
+auth_manager = AuthManager(app)
 
 mail = Mail(app)
 
@@ -46,6 +51,168 @@ def health_check():
         'status': 'healthy',
         'timestamp': datetime.now().isoformat()
     })
+
+# Authentication Routes
+@app.route('/api/auth/register', methods=['POST'])
+def register():
+    """Register a new user"""
+    try:
+        data = request.get_json()
+        
+        # Validate required fields
+        required_fields = ['email', 'password', 'name']
+        for field in required_fields:
+            if not data.get(field):
+                return jsonify({
+                    'success': False,
+                    'error': f'Missing required field: {field}'
+                }), 400
+        
+        result, status_code = auth_manager.register_user(
+            data['email'], 
+            data['password'], 
+            data['name']
+        )
+        
+        return jsonify({'success': status_code == 201, **result}), status_code
+        
+    except Exception as e:
+        logger.error(f"Registration error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Registration failed'
+        }), 500
+
+@app.route('/api/auth/login', methods=['POST'])
+def login():
+    """Login user with email and password"""
+    try:
+        data = request.get_json()
+        
+        # Validate required fields
+        required_fields = ['email', 'password']
+        for field in required_fields:
+            if not data.get(field):
+                return jsonify({
+                    'success': False,
+                    'error': f'Missing required field: {field}'
+                }), 400
+        
+        result, status_code = auth_manager.login_user(
+            data['email'], 
+            data['password']
+        )
+        
+        return jsonify({'success': status_code == 200, **result}), status_code
+        
+    except Exception as e:
+        logger.error(f"Login error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Login failed'
+        }), 500
+
+@app.route('/api/auth/google', methods=['POST'])
+def google_login():
+    """Login user with Google OAuth"""
+    try:
+        data = request.get_json()
+        
+        if not data.get('token'):
+            return jsonify({
+                'success': False,
+                'error': 'Missing Google token'
+            }), 400
+        
+        result, status_code = auth_manager.google_login(data['token'])
+        
+        return jsonify({'success': status_code == 200, **result}), status_code
+        
+    except Exception as e:
+        logger.error(f"Google login error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Google login failed'
+        }), 500
+
+@app.route('/api/auth/me', methods=['GET'])
+@token_required
+def get_current_user(current_user_id):
+    """Get current user info"""
+    try:
+        user = auth_manager.get_user_by_id(current_user_id)
+        
+        if not user:
+            return jsonify({
+                'success': False,
+                'error': 'User not found'
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'user': user
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Get user error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to get user info'
+        }), 500
+
+# Chatbot Routes
+@app.route('/api/chatbot/message', methods=['POST'])
+def chatbot_message():
+    """Handle chatbot messages"""
+    try:
+        data = request.get_json()
+        
+        if not data.get('message'):
+            return jsonify({
+                'success': False,
+                'error': 'Message is required'
+            }), 400
+        
+        # Get response from RAG chatbot
+        response_data = portfolio_chatbot.get_response(data['message'])
+        
+        return jsonify({
+            'success': True,
+            'response': response_data['response'],
+            'sources': response_data['sources'],
+            'confidence': response_data['confidence'],
+            'timestamp': datetime.now().isoformat()
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Chatbot error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to process message',
+            'response': "I'm sorry, I'm having trouble processing your message right now. Please try again later."
+        }), 500
+
+@app.route('/api/chatbot/health', methods=['GET'])
+def chatbot_health():
+    """Check chatbot health status"""
+    try:
+        # Test the chatbot with a simple query
+        test_response = portfolio_chatbot.get_response("Hello")
+        
+        return jsonify({
+            'success': True,
+            'status': 'healthy',
+            'message': 'Chatbot is operational',
+            'knowledge_base_loaded': portfolio_chatbot.vectorstore is not None
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Chatbot health check error: {str(e)}")
+        return jsonify({
+            'success': False,
+            'status': 'unhealthy',
+            'error': str(e)
+        }), 500
 
 @app.route('/api/contact', methods=['POST'])
 def contact():

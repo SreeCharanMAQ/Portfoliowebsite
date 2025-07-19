@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Progress, Card, Tabs, Badge, Rate, Tooltip } from 'antd';
+
 import { 
   FaReact, FaNodeJs, FaPython, FaJsSquare, FaHtml5, FaCss3Alt, 
   FaGitAlt, FaDocker, FaAws, FaDatabase 
@@ -10,10 +10,9 @@ import {
   SiTypescript, SiMongodb, SiPostgresql, SiExpress, SiFlask, 
   SiTailwindcss, SiRedux, SiFirebase, SiGraphql, SiJest 
 } from 'react-icons/si';
-import LottieAnimation from './LottieAnimation';
 import './Skills.css';
 
-const { TabPane } = Tabs;
+
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -130,25 +129,7 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          className="skills-summary"
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          <div className="summary-item">
-            <h3>Frontend Focus</h3>
-            <p>Specialized in React ecosystem with modern JavaScript/TypeScript</p>
-          </div>
-          <div className="summary-item">
-            <h3>Backend Expertise</h3>
-            <p>Proficient in Python and Node.js for scalable server solutions</p>
-          </div>
-          <div className="summary-item">
-            <h3>Full Stack</h3>
-            <p>End-to-end development from UI/UX to database optimization</p>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

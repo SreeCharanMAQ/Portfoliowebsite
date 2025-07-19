@@ -53,7 +53,7 @@ const ParticleBackground = () => {
             color: "#000000",
             distance: 150,
             enable: true,
-            opacity: 0.4,
+            opacity: 0.2,
             width: 1,
           },
           collisions: {
@@ -77,7 +77,7 @@ const ParticleBackground = () => {
             value: 80,
           },
           opacity: {
-            value: 0.6,
+            value: 0.3,
           },
           shape: {
             type: "circle",

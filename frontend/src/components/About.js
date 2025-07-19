@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiCode, FiHeart, FiZap } from 'react-icons/fi';
 import './About.css';
 
 const About = () => {
@@ -9,12 +8,6 @@ const About = () => {
     threshold: 0.3,
     triggerOnce: true
   });
-
-  const stats = [
-    { number: '2+', label: 'Years Experience', icon: <FiCode /> },
-    { number: '15+', label: 'Projects Completed', icon: <FiZap /> },
-    { number: '100%', label: 'Client Satisfaction', icon: <FiHeart /> }
-  ];
 
   return (
     <section id="about" className="section about" ref={ref}>
@@ -86,28 +79,6 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          className="about-stats"
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="stat-item glass-effect hover-lift animate-bounce-in"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="stat-icon">{stat.icon}</div>
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
 
         <motion.div
           className="about-philosophy"

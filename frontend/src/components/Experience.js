@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiCalendar, FiMapPin, FiBriefcase } from 'react-icons/fi';
 import { Card, Tag, Button, Tooltip, Rate, Badge, Space } from 'antd';
-import { TrophyOutlined, StarOutlined, HeartOutlined, FireOutlined, RocketOutlined } from '@ant-design/icons';
+import { TrophyOutlined, StarOutlined } from '@ant-design/icons';
 import LottieAnimation from './LottieAnimation';
 import './Experience.css';
 
@@ -151,13 +151,6 @@ const Experience = ({ triggerConfetti }) => {
                   }}
                   onClick={() => handleExperienceClick(exp)}
                   transition={{ type: "spring", stiffness: 300 }}
-                  animate={{
-                    boxShadow: [
-                      '0 4px 15px rgba(139, 69, 19, 0.3)',
-                      '0 4px 20px rgba(24, 144, 255, 0.4)',
-                      '0 4px 15px rgba(139, 69, 19, 0.3)'
-                    ]
-                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Badge count={exp.achievements.length} offset={[10, -10]}>
@@ -370,128 +363,7 @@ const Experience = ({ triggerConfetti }) => {
           ))}
         </div>
 
-        <motion.div
-          className="experience-summary"
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1 }}
-        >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card className="summary-card">
-              <div className="summary-stats">
-                <motion.div
-                  className="stat"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    y: -5,
-                    boxShadow: '0 10px 25px rgba(245, 0, 87, 0.3)'
-                  }}
-                  onClick={() => triggerConfetti && triggerConfetti()}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Badge count={<motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                  >
-                    <FireOutlined style={{ color: '#f50' }} />
-                  </motion.div>}>
-                    <motion.span 
-                      className="stat-number"
-                      animate={{ 
-                        color: ['#f50', '#fa541c', '#fa8c16', '#f50']
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      2+
-                    </motion.span>
-                  </Badge>
-                  <motion.span 
-                    className="stat-label"
-                    whileHover={{ color: '#f50' }}
-                  >
-                    Years Experience
-                  </motion.span>
-                </motion.div>
-                
-                <motion.div
-                  className="stat"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    y: -5,
-                    boxShadow: '0 10px 25px rgba(82, 196, 26, 0.3)'
-                  }}
-                  onClick={() => triggerConfetti && triggerConfetti()}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Badge count={<motion.div
-                    animate={{ 
-                      y: [0, -3, 0],
-                      rotate: [0, 5, -5, 0] 
-                    }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <RocketOutlined style={{ color: '#52c41a' }} />
-                  </motion.div>}>
-                    <motion.span 
-                      className="stat-number"
-                      animate={{ 
-                        color: ['#52c41a', '#73d13d', '#95de64', '#52c41a']
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      15+
-                    </motion.span>
-                  </Badge>
-                  <motion.span 
-                    className="stat-label"
-                    whileHover={{ color: '#52c41a' }}
-                  >
-                    Projects Completed
-                  </motion.span>
-                </motion.div>
-                
-                <motion.div
-                  className="stat"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    y: -5,
-                    boxShadow: '0 10px 25px rgba(235, 47, 150, 0.3)'
-                  }}
-                  onClick={() => triggerConfetti && triggerConfetti()}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Badge count={<motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <HeartOutlined style={{ color: '#eb2f96' }} />
-                  </motion.div>}>
-                    <motion.span 
-                      className="stat-number"
-                      animate={{ 
-                        color: ['#eb2f96', '#f759ab', '#ffadd2', '#eb2f96']
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      3+
-                    </motion.span>
-                  </Badge>
-                  <motion.span 
-                    className="stat-label"
-                    whileHover={{ color: '#eb2f96' }}
-                  >
-                    Companies
-                  </motion.span>
-                </motion.div>
-              </div>
-            </Card>
-          </motion.div>
-        </motion.div>
+
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import AuthButton from './AuthButton';
 import './Navbar.css';
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -71,6 +72,8 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
 
         <div className="nav-actions">
+          <AuthButton />
+          
           <motion.button
             className="theme-toggle"
             onClick={toggleTheme}
