@@ -1,0 +1,178 @@
+.enhancement-showcase {
+  padding: 100px 0;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px var(--shadow-color) !important;
+  border-color: var(--accent-color) !important;
+}
+
+.feature-card .ant-card-body {
+  padding: 24px !important;
+}
+
+.feature-card .ant-card-meta-title {
+  color: var(--text-primary) !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+}
+
+.feature-card .ant-card-meta-description {
+  color: var(--text-secondary) !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.achievement-item:hover {
+  background: var(--accent-color);
+  color: var(--bg-primary);
+}
+
+.achievement-item .ant-typography {
+  margin-top: 0.5rem !important;
+  font-size: 0.9rem !important;
+}
+
+.tech-stack {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--gradient-primary);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.tech-stack .ant-tag {
+  margin: 0.5rem !important;
+  border-radius: 20px !important;
+  border: none !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.tech-stack .ant-tag:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ant Design Component Overrides */
+.ant-progress-text {
+  color: var(--text-primary) !important;
+}
+
+.ant-typography {
+  color: var(--text-primary) !important;
+}
+
+.ant-divider {
+  border-color: var(--border-color) !important;
+}
+
+.ant-btn-primary {
+  background: var(--gradient-accent) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  height: 40px !important;
+  font-weight: 600 !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px var(--shadow-color) !important;
+}
+
+.ant-rate-star {
+  color: #faad14 !important;
+}
+
+.ant-avatar {
+  transition: all 0.3s ease !important;
+}
+
+.ant-avatar:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Glass Effect Enhancement */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .glass-effect,
+.App.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-stack {
+    padding: 1.5rem;
+  }
+  
+  .tech-stack .ant-tag {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .enhancement-showcase {
+    padding: 60px 0;
+  }
+  
+  .feature-card .ant-card-body {
+    padding: 16px !important;
+  }
+}
