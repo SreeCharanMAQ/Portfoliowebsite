@@ -1,25 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { message } from 'antd';
 import { 
-  Form, Input, Button, Card, Space, Typography, message, 
-  Row, Col, Divider, Avatar, Tag
-} from 'antd';
-import { 
-  MailOutlined, PhoneOutlined, EnvironmentOutlined, 
-  SendOutlined, GithubOutlined, LinkedinOutlined,
-  TwitterOutlined, InstagramOutlined, HeartOutlined
+  MailOutlined, PhoneOutlined, EnvironmentOutlined
 } from '@ant-design/icons';
 import { 
-  FiMail, FiPhone, FiMapPin, FiSend, FiGithub, 
-  FiLinkedin, FiTwitter, FiInstagram 
+  FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiSend
 } from 'react-icons/fi';
 import axios from 'axios';
-import LottieAnimation from './LottieAnimation';
 import './Contact.css';
-
-const { Title, Paragraph, Text } = Typography;
-const { TextArea } = Input;
 
 const Contact = ({ triggerConfetti }) => {
   const [ref, inView] = useInView({
@@ -73,19 +63,19 @@ const Contact = ({ triggerConfetti }) => {
 
   const contactInfo = [
     {
-      icon: <FiMail />,
+      icon: <MailOutlined style={{ fontSize: '24px', color: '#1890ff' }} />,
       title: 'Email',
       info: 'sreecharan@example.com',
       link: 'mailto:sreecharan@example.com'
     },
     {
-      icon: <FiPhone />,
+      icon: <PhoneOutlined style={{ fontSize: '24px', color: '#52c41a' }} />,
       title: 'Phone',
       info: '+91 12345 67890',
       link: 'tel:+911234567890'
     },
     {
-      icon: <FiMapPin />,
+      icon: <EnvironmentOutlined style={{ fontSize: '24px', color: '#fa541c' }} />,
       title: 'Location',
       info: 'Hyderabad, India',
       link: 'https://maps.google.com'

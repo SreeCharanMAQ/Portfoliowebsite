@@ -1,6 +1,15 @@
 .contact {
-  background: var(--bg-primary);
+  background: #000000;
   position: relative;
+  color: #000000;
+}
+
+.contact .section-title {
+  color: #000000 !important;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .contact::before {
@@ -10,13 +19,13 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--gradient-accent);
+  background: #333333;
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: #000000;
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -39,13 +48,13 @@
 .contact-info-title {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #000000;
   margin-bottom: 1rem;
 }
 
 .contact-description {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #000000;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -61,17 +70,17 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
+  background: #000000;
   border-radius: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #333333;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .contact-method:hover {
-  border-color: var(--accent-color);
-  box-shadow: 0 10px 30px var(--shadow-color);
+  border-color: #555555;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .contact-icon {
@@ -80,9 +89,9 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: var(--accent-color);
+  background: #333333;
   border-radius: 50%;
-  color: white;
+  color: #000000;
   font-size: 1.5rem;
 }
 
@@ -95,11 +104,11 @@
 .contact-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #000000;
 }
 
 .contact-text {
-  color: var(--text-secondary);
+  color: #000000;
   font-size: 0.9rem;
 }
 
@@ -108,7 +117,7 @@
 }
 
 .social-links h4 {
-  color: var(--text-primary);
+  color: #000000;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -125,10 +134,10 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
+  background: #000000;
+  border: 2px solid #333333;
   border-radius: 50%;
-  color: var(--text-primary);
+  color: #000000;
   font-size: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -143,7 +152,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: var(--social-color);
+  background: #333333;
   transition: all 0.3s ease;
   z-index: -1;
 }
@@ -153,16 +162,16 @@
 }
 
 .social-icon:hover {
-  color: white;
-  border-color: var(--social-color);
-  box-shadow: 0 0 20px var(--social-color);
+  color: #000000;
+  border-color: #555555;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form-container {
-  background: var(--bg-secondary);
+  background: #000000;
   padding: 2.5rem;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #333333;
   position: relative;
   overflow: hidden;
 }
@@ -174,7 +183,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--gradient-accent);
+  background: #333333;
 }
 
 .contact-form {
@@ -190,10 +199,10 @@
 .form-input {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: var(--bg-primary);
-  border: 2px solid var(--border-color);
+  background: #000000;
+  border: 2px solid #333333;
   border-radius: 12px;
-  color: var(--text-primary);
+  color: #000000;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
@@ -202,12 +211,12 @@
 
 .form-input:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 20px var(--shadow-color);
+  border-color: #555555;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .form-input::placeholder {
-  color: var(--text-secondary);
+  color: #000000;
 }
 
 .form-textarea {
@@ -216,8 +225,8 @@
 }
 
 .form-submit {
-  background: var(--gradient-accent);
-  color: white;
+  background: #333333;
+  color: #000000;
   border: none;
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -235,7 +244,8 @@
 
 .form-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px var(--shadow-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: #555555;
 }
 
 .form-submit:disabled {
@@ -245,6 +255,26 @@
 
 .btn-icon {
   font-size: 1rem;
+}
+
+.submit-status {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.submit-status.success {
+  background: #333333;
+  color: #000000;
+  border: 1px solid #555555;
+}
+
+.submit-status.error {
+  background: #333333;
+  color: #000000;
+  border: 1px solid #555555;
 }
 
 .loading-spinner {

@@ -1,0 +1,482 @@
+/* HackathonDetail.css */
+.hackathon-detail-container {
+  background: #000000;
+  color: #000000;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.hackathon-detail-container .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.detail-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: #333333;
+  border-color: #555555;
+  color: #000000;
+}
+
+.back-button:hover {
+  background: #555555;
+  border-color: #777777;
+  color: #000000;
+}
+
+/* Hero Section */
+.hackathon-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 3rem 2rem;
+  background: #111111;
+  border-radius: 20px;
+  border: 1px solid #333333;
+}
+
+.position-tag {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  background: #333333 !important;
+  color: #000000 !important;
+  border: 1px solid #555555;
+}
+
+.hackathon-title {
+  color: #000000 !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.event-name {
+  color: #000000 !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 2rem !important;
+}
+
+.hackathon-description {
+  color: #000000 !important;
+  font-size: 1.2rem !important;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.quick-info {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: #000000;
+  border-radius: 15px;
+  border: 1px solid #333333;
+}
+
+.quick-info .ant-statistic-title {
+  color: #000000 !important;
+}
+
+.quick-info .ant-statistic-content {
+  color: #000000 !important;
+}
+
+.action-buttons {
+  margin-top: 2rem;
+}
+
+.action-buttons .ant-btn {
+  background: #333333;
+  border-color: #555555;
+  color: #000000;
+  margin: 0.5rem;
+}
+
+.action-buttons .ant-btn:hover {
+  background: #555555;
+  border-color: #777777;
+  color: #000000;
+}
+
+.action-buttons .ant-btn-primary {
+  background: #444444;
+  border-color: #666666;
+}
+
+.action-buttons .ant-btn-primary:hover {
+  background: #666666;
+  border-color: #888888;
+}
+
+/* Image Gallery */
+.image-gallery-section {
+  margin-bottom: 4rem;
+}
+
+.image-gallery-section h2 {
+  color: #000000 !important;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project-carousel {
+  background: #111111;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #333333;
+}
+
+.carousel-slide {
+  height: 500px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.thumbnail-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.thumbnail.active {
+  border-color: #555555;
+  transform: scale(1.1);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Project Details */
+.project-details {
+  margin-bottom: 4rem;
+}
+
+.detail-card {
+  background: #111111 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 15px !important;
+  height: 100%;
+}
+
+.detail-card .ant-card-body {
+  padding: 2rem;
+}
+
+.detail-card h3 {
+  color: #000000 !important;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.detail-card p {
+  color: #000000 !important;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: #333333 !important;
+  color: #000000 !important;
+  border: 1px solid #555555 !important;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.team-member {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #000000;
+  border-radius: 8px;
+  border: 1px solid #333333;
+}
+
+.team-member .ant-typography {
+  color: #000000 !important;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #333333;
+  color: #000000;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.features-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #555555;
+  font-weight: bold;
+}
+
+.features-list li:last-child {
+  border-bottom: none;
+}
+
+/* Timeline */
+.timeline-section {
+  margin-bottom: 4rem;
+}
+
+.timeline-section h2 {
+  color: #000000 !important;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-timeline {
+  background: #111111;
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid #333333;
+}
+
+.project-timeline .ant-timeline-item-content {
+  color: #000000 !important;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+.project-timeline .ant-timeline-item-label {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.project-timeline .ant-timeline-item-tail {
+  border-left-color: #333333;
+}
+
+.project-timeline .ant-timeline-item-head {
+  background: #555555;
+  border-color: #777777;
+}
+
+/* Recognition */
+.recognition-section {
+  margin-bottom: 4rem;
+}
+
+.recognition-section h2 {
+  color: #000000 !important;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.recognition-card {
+  background: #111111 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+  text-align: center;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.recognition-card:hover {
+  border-color: #555555;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.recognition-icon {
+  font-size: 2rem;
+  color: #555555;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.recognition-card .ant-typography {
+  color: #000000 !important;
+  font-size: 1.1rem;
+}
+
+/* CTA Section */
+.more-projects-cta {
+  text-align: center;
+}
+
+.cta-card {
+  background: #111111 !important;
+  border: 1px solid #333333 !important;
+  border-radius: 20px !important;
+  padding: 3rem 2rem;
+}
+
+.cta-card h3 {
+  color: #000000 !important;
+  margin-bottom: 1rem;
+}
+
+.cta-card p {
+  color: #000000 !important;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-card .ant-btn {
+  background: #333333;
+  border-color: #555555;
+  color: #000000;
+  padding: 1rem 2rem;
+  height: auto;
+  font-size: 1.1rem;
+}
+
+.cta-card .ant-btn:hover {
+  background: #555555;
+  border-color: #777777;
+  color: #000000;
+}
+
+/* Not Found */
+.not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.not-found h2 {
+  color: #000000 !important;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hackathon-title {
+    font-size: 2rem !important;
+  }
+  
+  .event-name {
+    font-size: 1.2rem !important;
+  }
+  
+  .hackathon-description {
+    font-size: 1rem !important;
+  }
+  
+  .quick-info {
+    padding: 1rem;
+  }
+  
+  .action-buttons .ant-btn {
+    margin: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-slide {
+    height: 300px;
+  }
+  
+  .gallery-image {
+    height: 300px;
+  }
+  
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .recognition-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-timeline {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hackathon-detail-container .container {
+    padding: 0 1rem;
+  }
+  
+  .hackathon-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hackathon-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .detail-card .ant-card-body {
+    padding: 1rem;
+  }
+  
+  .cta-card {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Dark theme overrides */
+.ant-carousel .slick-dots li button {
+  background: #333333;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: #555555;
+}
+
+.ant-image-preview-close {
+  color: #000000;
+}
+
+.ant-divider {
+  border-color: #333333;
+}
+
+.ant-statistic-content-value {
+  color: #000000 !important;
+}
+
+.ant-tag {
+  background: #333333 !important;
+  color: #000000 !important;
+  border: 1px solid #555555 !important;
+}
