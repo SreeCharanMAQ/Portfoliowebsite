@@ -6,12 +6,11 @@ import {
   Row, Col, Typography, Space, Divider 
 } from 'antd';
 import { 
-  ArrowLeftOutlined, GithubOutlined, LinkOutlined, 
+  ArrowLeftOutlined, GithubOutlined, 
   TrophyOutlined, CalendarOutlined, TeamOutlined,
-  EyeOutlined, StarOutlined, ForkOutlined,
-  LinkedinOutlined, PlayCircleOutlined
+  EyeOutlined, LinkedinOutlined, PlayCircleOutlined
 } from '@ant-design/icons';
-import { FiExternalLink, FiCode, FiUsers, FiAward } from 'react-icons/fi';
+import { FiCode, FiUsers, FiAward } from 'react-icons/fi';
 import './HackathonDetail.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -175,6 +174,382 @@ const HackathonDetail = () => {
         "Social Impact Award",
         "Technical Excellence",
         "Potential for Scale Award"
+      ]
+    },
+    
+    3: {
+      id: 3,
+      title: "Healthcare AI Hackathon",
+      event: "MedTech 2023",
+      position: "🥈 2nd Place Winner", 
+      date: "December 8-10, 2023",
+      location: "AIIMS, New Delhi",
+      description: "Built an AI diagnostic tool for early detection of diseases using medical imaging with 95% accuracy.",
+      problemStatement: "Early disease detection is crucial for treatment success, but medical imaging analysis is time-consuming and requires specialized expertise.",
+      solution: "An AI-powered diagnostic assistant that analyzes medical images and provides preliminary diagnosis with confidence scores.",
+      technologies: ["Python", "PyTorch", "Flask", "OpenCV", "NumPy", "DICOM", "React"],
+      team: [
+        { name: "Sree Charan", role: "AI/ML Engineer & Lead" },
+        { name: "Dr. Kavitha Reddy", role: "Medical Advisor" },
+        { name: "Rohit Sharma", role: "Backend Developer" },
+        { name: "Deepika Jain", role: "Frontend Developer" },
+        { name: "Arjun Patel", role: "Data Scientist" }
+      ],
+      prize: "₹40,000 + Research Publication",
+      participants: 180,
+      teams: 45,
+      duration: "60 hours",
+      theme: "AI in Healthcare",
+      
+      images: [
+        "/hackathon3-cover.jpg",
+        "/hackathon3-ai-model.jpg",
+        "/hackathon3-team.jpg",
+        "/hackathon3-demo.jpg", 
+        "/hackathon3-award.jpg",
+        "/hackathon3-presentation.jpg"
+      ],
+      
+      links: {
+        github: "https://github.com/sreecharan/medical-ai-diagnosis",
+        demo: "https://medical-ai-demo.herokuapp.com",
+        linkedin: "https://linkedin.com/posts/sreecharan/healthcare-ai-hackathon",
+        paper: "https://arxiv.org/sreecharan-medical-ai-2023",
+        video: "https://youtube.com/watch?v=health789"
+      },
+      
+      features: [
+        "Medical Image Analysis",
+        "Disease Classification", 
+        "Confidence Scoring",
+        "DICOM File Support",
+        "Multi-modal Analysis",
+        "Doctor Dashboard"
+      ],
+      
+      timeline: [
+        { time: "Day 1 - 4 PM", event: "Medical Domain Research" },
+        { time: "Day 1 - 8 PM", event: "Dataset Collection & Preprocessing" },
+        { time: "Day 2 - 2 AM", event: "AI Model Architecture Design" },
+        { time: "Day 2 - 10 AM", event: "Model Training & Validation" },
+        { time: "Day 2 - 6 PM", event: "Web Interface Development" },
+        { time: "Day 3 - 2 AM", event: "Integration & Testing" },
+        { time: "Day 3 - 10 AM", event: "Medical Expert Review" },
+        { time: "Day 3 - 4 PM", event: "Final Presentation" }
+      ],
+      
+      impact: {
+        accuracy: "95%",
+        processingTime: "75%",
+        diagnosticSpeed: "400%",
+        doctorApproval: "88%"
+      },
+      
+      recognition: [
+        "Best Healthcare Innovation",
+        "Technical Excellence Award",
+        "Clinical Impact Recognition",
+        "Research Publication Opportunity"
+      ]
+    },
+    
+    4: {
+      id: 4,
+      title: "EdTech Innovation Challenge",
+      event: "EduTech Summit 2023",
+      position: "🥇 1st Place Winner",
+      date: "October 20-22, 2023",
+      location: "IIT Delhi, Delhi",
+      description: "Created an adaptive learning platform using AI to personalize education for students with different learning styles.",
+      problemStatement: "Traditional education systems follow one-size-fits-all approach, failing to cater to individual learning styles and paces.",
+      solution: "An AI-powered adaptive learning platform that customizes content delivery based on individual learning patterns and preferences.",
+      technologies: ["React", "Node.js", "TensorFlow", "MongoDB", "Socket.io", "WebRTC", "AWS"],
+      team: [
+        { name: "Sree Charan", role: "Full Stack Developer & Lead" },
+        { name: "Meera Gupta", role: "Educational Psychologist" },
+        { name: "Kiran Kumar", role: "AI/ML Engineer" },
+        { name: "Pooja Singh", role: "UI/UX Designer" }
+      ],
+      prize: "₹60,000 + Startup Incubation",
+      participants: 220,
+      teams: 55,
+      duration: "48 hours",
+      theme: "Personalized Learning & EdTech",
+      
+      images: [
+        "/hackathon4-cover.jpg",
+        "/hackathon4-platform.jpg",
+        "/hackathon4-team.jpg",
+        "/hackathon4-demo.jpg",
+        "/hackathon4-award.jpg",
+        "/hackathon4-students.jpg"
+      ],
+      
+      links: {
+        github: "https://github.com/sreecharan/adaptive-learning",
+        demo: "https://adaptive-learning-demo.netlify.app",
+        linkedin: "https://linkedin.com/posts/sreecharan/edtech-hackathon",
+        presentation: "https://slides.com/sreecharan/adaptive-learning",
+        video: "https://youtube.com/watch?v=edtech101"
+      },
+      
+      features: [
+        "Adaptive Content Delivery",
+        "Learning Style Analysis",
+        "Progress Tracking",
+        "Interactive Assessments",
+        "Peer Collaboration",
+        "Teacher Analytics Dashboard"
+      ],
+      
+      timeline: [
+        { time: "Day 1 - 5 PM", event: "Educational Research & Problem Analysis" },
+        { time: "Day 1 - 9 PM", event: "Learning Algorithm Design" },
+        { time: "Day 2 - 1 AM", event: "Backend Development & AI Integration" },
+        { time: "Day 2 - 9 AM", event: "Frontend Interface Creation" },
+        { time: "Day 2 - 3 PM", event: "Content Management System" },
+        { time: "Day 2 - 9 PM", event: "Testing with Sample Students" },
+        { time: "Day 3 - 11 AM", event: "Final Adjustments" },
+        { time: "Day 3 - 3 PM", event: "Demo & Presentation" }
+      ],
+      
+      impact: {
+        learningImprovement: "65%",
+        engagementIncrease: "80%", 
+        completionRate: "90%",
+        teacherSatisfaction: "95%"
+      },
+      
+      recognition: [
+        "Best EdTech Innovation",
+        "Social Impact Award",
+        "Jury's Choice Award",
+        "Startup Incubation Offer"
+      ]
+    },
+    
+    5: {
+      id: 5,
+      title: "Sustainable Energy Hackathon",
+      event: "GreenTech 2023",
+      position: "🥇 1st Place Winner",
+      date: "September 15-17, 2023",
+      location: "IIT Bombay, Mumbai",
+      description: "Developed a smart grid optimization system for renewable energy distribution with 40% efficiency improvement.",
+      problemStatement: "Traditional power grids struggle to efficiently manage renewable energy sources due to their intermittent nature.",
+      solution: "An AI-powered smart grid system that predicts energy demand and optimizes renewable energy distribution in real-time.",
+      technologies: ["Python", "TensorFlow", "IoT", "React", "Node.js", "InfluxDB", "Grafana"],
+      team: [
+        { name: "Sree Charan", role: "Systems Engineer & Lead" },
+        { name: "Vikram Reddy", role: "Energy Systems Specialist" },
+        { name: "Nisha Agarwal", role: "IoT Developer" },
+        { name: "Rajesh Menon", role: "Data Analyst" }
+      ],
+      prize: "₹80,000 + Patent Support",
+      participants: 160,
+      teams: 40,
+      duration: "48 hours",
+      theme: "Sustainable Energy & Smart Grids",
+      
+      images: [
+        "/hackathon5-cover.jpg",
+        "/hackathon5-smartgrid.jpg",
+        "/hackathon5-team.jpg",
+        "/hackathon5-demo.jpg",
+        "/hackathon5-award.jpg",
+        "/hackathon5-prototype.jpg"
+      ],
+      
+      links: {
+        github: "https://github.com/sreecharan/smart-grid-optimization",
+        demo: "https://smart-grid-demo.vercel.app",
+        linkedin: "https://linkedin.com/posts/sreecharan/sustainable-energy",
+        whitepaper: "https://docs.google.com/smart-grid-whitepaper",
+        video: "https://youtube.com/watch?v=energy123"
+      },
+      
+      features: [
+        "Real-time Energy Monitoring",
+        "Demand Prediction",
+        "Renewable Energy Optimization", 
+        "Grid Load Balancing",
+        "IoT Sensor Integration",
+        "Energy Analytics Dashboard"
+      ],
+      
+      timeline: [
+        { time: "Day 1 - 6 PM", event: "Energy Grid Analysis" },
+        { time: "Day 1 - 10 PM", event: "IoT Architecture Design" },
+        { time: "Day 2 - 2 AM", event: "Prediction Algorithm Development" },
+        { time: "Day 2 - 8 AM", event: "Hardware Prototype Building" },
+        { time: "Day 2 - 2 PM", event: "Software Integration" },
+        { time: "Day 2 - 8 PM", event: "System Testing & Validation" },
+        { time: "Day 3 - 10 AM", event: "Performance Optimization" },
+        { time: "Day 3 - 2 PM", event: "Final Demo & Pitch" }
+      ],
+      
+      impact: {
+        energyEfficiency: "40%",
+        carbonReduction: "35%",
+        costSavings: "50%",
+        gridStability: "85%"
+      },
+      
+      recognition: [
+        "Best Sustainability Solution",
+        "Innovation Excellence",
+        "Environmental Impact Award",
+        "Patent Filing Support"
+      ]
+    },
+    
+    6: {
+      id: 6,
+      title: "Cybersecurity Defense Challenge", 
+      event: "SecureCode 2023",
+      position: "🥈 2nd Place Winner",
+      date: "August 25-27, 2023",
+      location: "NASSCOM, Bangalore",
+      description: "Built an AI-powered threat detection system for real-time cybersecurity monitoring with 99.2% accuracy.",
+      problemStatement: "Traditional cybersecurity systems rely on signature-based detection, making them vulnerable to zero-day attacks.",
+      solution: "An AI-powered threat detection system using machine learning to identify anomalous behavior patterns in real-time.",
+      technologies: ["Python", "Scikit-learn", "Elasticsearch", "Kibana", "Docker", "Flask", "React"],
+      team: [
+        { name: "Sree Charan", role: "Security Engineer & Lead" },
+        { name: "Amit Sharma", role: "Cybersecurity Specialist" },
+        { name: "Priya Nair", role: "ML Engineer" },
+        { name: "Sachin Joshi", role: "DevOps Engineer" }
+      ],
+      prize: "₹45,000 + Security Certification",
+      participants: 140,
+      teams: 35,
+      duration: "60 hours",
+      theme: "AI-Powered Cybersecurity",
+      
+      images: [
+        "/hackathon6-cover.jpg",
+        "/hackathon6-security.jpg",
+        "/hackathon6-team.jpg",
+        "/hackathon6-demo.jpg",
+        "/hackathon6-award.jpg",
+        "/hackathon6-dashboard.jpg"
+      ],
+      
+      links: {
+        github: "https://github.com/sreecharan/ai-threat-detection",
+        demo: "https://threat-detection-demo.herokuapp.com",
+        linkedin: "https://linkedin.com/posts/sreecharan/cybersecurity-ai",
+        documentation: "https://docs.sreecharan.com/threat-detection",
+        video: "https://youtube.com/watch?v=cyber456"
+      },
+      
+      features: [
+        "Real-time Threat Detection",
+        "Anomaly Pattern Recognition",
+        "Automated Response System",
+        "Network Traffic Analysis",
+        "Incident Management",
+        "Security Compliance Reporting"
+      ],
+      
+      timeline: [
+        { time: "Day 1 - 4 PM", event: "Threat Landscape Analysis" },
+        { time: "Day 1 - 8 PM", event: "ML Model Architecture Design" },
+        { time: "Day 2 - 12 AM", event: "Data Collection & Preprocessing" },
+        { time: "Day 2 - 8 AM", event: "Model Training & Validation" },
+        { time: "Day 2 - 4 PM", event: "Real-time Detection Engine" },
+        { time: "Day 2 - 10 PM", event: "Dashboard Development" },
+        { time: "Day 3 - 8 AM", event: "Security Testing" },
+        { time: "Day 3 - 4 PM", event: "Final Security Demo" }
+      ],
+      
+      impact: {
+        detectionAccuracy: "99.2%",
+        responseTime: "85%",
+        falsePositives: "95%",
+        threatCoverage: "92%"
+      },
+      
+      recognition: [
+        "Best Security Innovation",
+        "Technical Excellence",
+        "Industry Choice Award",
+        "Security Certification Scholarship"
+      ]
+    },
+    
+    7: {
+      id: 7,
+      title: "Social Impact Tech Challenge",
+      event: "Impact Innovators 2023",
+      position: "🥇 1st Place Winner",
+      date: "July 14-16, 2023",
+      location: "Social Alpha, Bangalore",
+      description: "Created a disaster management platform for real-time coordination of relief efforts with 200% efficiency improvement.",
+      problemStatement: "During disasters, lack of coordination between relief agencies leads to inefficient resource allocation and delayed response.",
+      solution: "A comprehensive disaster management platform that enables real-time coordination, resource tracking, and volunteer management.",
+      technologies: ["React", "Node.js", "MongoDB", "Socket.io", "MapBox", "Twilio", "AWS"],
+      team: [
+        { name: "Sree Charan", role: "Full Stack Developer & Lead" },
+        { name: "Anita Kumari", role: "Social Impact Specialist" },
+        { name: "Rahul Verma", role: "GIS Developer" },
+        { name: "Sneha Reddy", role: "Communication Systems Engineer" }
+      ],
+      prize: "₹1,00,000 + NGO Partnership",
+      participants: 200,
+      teams: 50,
+      duration: "48 hours",
+      theme: "Technology for Social Good",
+      
+      images: [
+        "/hackathon7-cover.jpg",
+        "/hackathon7-disaster.jpg",
+        "/hackathon7-team.jpg",
+        "/hackathon7-demo.jpg",
+        "/hackathon7-award.jpg",
+        "/hackathon7-impact.jpg"
+      ],
+      
+      links: {
+        github: "https://github.com/sreecharan/disaster-management",
+        demo: "https://disaster-relief-demo.netlify.app",
+        linkedin: "https://linkedin.com/posts/sreecharan/social-impact-tech",
+        impact: "https://sreecharan.com/disaster-relief-impact",
+        video: "https://youtube.com/watch?v=impact789"
+      },
+      
+      features: [
+        "Real-time Resource Tracking",
+        "Volunteer Coordination",
+        "Emergency Communication",
+        "Relief Camp Management",
+        "Donation Management",
+        "Impact Analytics"
+      ],
+      
+      timeline: [
+        { time: "Day 1 - 5 PM", event: "Disaster Response Research" },
+        { time: "Day 1 - 9 PM", event: "Platform Architecture Design" },
+        { time: "Day 2 - 1 AM", event: "Core Features Development" },
+        { time: "Day 2 - 9 AM", event: "Real-time Communication Setup" },
+        { time: "Day 2 - 3 PM", event: "Mapping & Location Services" },
+        { time: "Day 2 - 9 PM", event: "Testing with NGO Partners" },
+        { time: "Day 3 - 11 AM", event: "Impact Measurement Setup" },
+        { time: "Day 3 - 3 PM", event: "Social Impact Presentation" }
+      ],
+      
+      impact: {
+        responseEfficiency: "200%",
+        coordinationImprovement: "150%",
+        resourceUtilization: "180%",
+        ngoAdoption: "85%"
+      },
+      
+      recognition: [
+        "Best Social Impact Solution",
+        "Innovation for Good Award",
+        "NGO Partnership Award",
+        "Sustainable Development Recognition"
       ]
     }
     

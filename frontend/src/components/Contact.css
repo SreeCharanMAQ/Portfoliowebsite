@@ -1,11 +1,11 @@
 .contact {
-  background: #000000;
+  background: var(--bg-primary);
   position: relative;
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .contact .section-title {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
@@ -19,13 +19,13 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: #333333;
+  background: var(--border-color);
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #000000;
+  color: var(--text-secondary);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -48,13 +48,13 @@
 .contact-info-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #000000;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
 .contact-description {
   font-size: 1.1rem;
-  color: #000000;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -70,17 +70,18 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: #000000;
+  background: var(--card-bg);
   border-radius: 15px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .contact-method:hover {
-  border-color: #555555;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px var(--card-shadow);
+  transform: translateY(-2px);
 }
 
 .contact-icon {
@@ -89,9 +90,9 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #333333;
+  background: var(--bg-secondary);
   border-radius: 50%;
-  color: #000000;
+  color: var(--text-primary);
   font-size: 1.5rem;
 }
 
@@ -104,11 +105,11 @@
 .contact-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .contact-text {
-  color: #000000;
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
@@ -117,7 +118,7 @@
 }
 
 .social-links h4 {
-  color: #000000;
+  color: var(--text-primary);
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -134,10 +135,10 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #000000;
-  border: 2px solid #333333;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
   border-radius: 50%;
-  color: #000000;
+  color: var(--text-primary);
   font-size: 1.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -152,7 +153,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: #333333;
+  background: var(--accent-color);
   transition: all 0.3s ease;
   z-index: -1;
 }
@@ -162,16 +163,16 @@
 }
 
 .social-icon:hover {
-  color: #000000;
-  border-color: #555555;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  color: var(--bg-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px var(--card-shadow);
 }
 
 .contact-form-container {
-  background: #000000;
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 20px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
   position: relative;
   overflow: hidden;
 }
@@ -183,7 +184,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: #333333;
+  background: var(--accent-color);
 }
 
 .contact-form {
@@ -196,13 +197,17 @@
   position: relative;
 }
 
+.form-group {
+  position: relative;
+}
+
 .form-input {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: #000000;
-  border: 2px solid #333333;
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
   border-radius: 12px;
-  color: #000000;
+  color: var(--text-primary);
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
@@ -211,12 +216,12 @@
 
 .form-input:focus {
   outline: none;
-  border-color: #555555;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--input-focus);
+  box-shadow: 0 0 20px var(--card-shadow);
 }
 
 .form-input::placeholder {
-  color: #000000;
+  color: var(--text-secondary);
 }
 
 .form-textarea {
@@ -225,8 +230,8 @@
 }
 
 .form-submit {
-  background: #333333;
-  color: #000000;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -244,8 +249,9 @@
 
 .form-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  background: #555555;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  background: var(--accent-hover);
+  color: var(--bg-primary);
 }
 
 .form-submit:disabled {
@@ -266,22 +272,22 @@
 }
 
 .submit-status.success {
-  background: #333333;
-  color: #000000;
-  border: 1px solid #555555;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
 }
 
 .submit-status.error {
-  background: #333333;
-  color: #000000;
-  border: 1px solid #555555;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
 }
 
 .loading-spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
+  border: 2px solid var(--text-secondary);
+  border-top: 2px solid var(--text-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

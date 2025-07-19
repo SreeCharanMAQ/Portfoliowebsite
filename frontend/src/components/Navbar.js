@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../contexts/ThemeContext';
 import AuthButton from './AuthButton';
 import './Navbar.css';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
+  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

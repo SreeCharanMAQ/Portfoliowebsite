@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Card, Tag, Button } from 'antd';
-import { TrophyOutlined, CalendarOutlined, TeamOutlined, EyeOutlined } from '@ant-design/icons';
-import { FiAward, FiUsers, FiCalendar, FiExternalLink } from 'react-icons/fi';
+import { TrophyOutlined, CalendarOutlined, TeamOutlined } from '@ant-design/icons';
+import { FiAward, FiUsers, FiCalendar, FiExternalLink, FiEye } from 'react-icons/fi';
 import './Hackathons.css';
 
 const Hackathons = () => {
@@ -198,7 +198,7 @@ const Hackathons = () => {
                 actions={[
                   <Button 
                     type="primary" 
-                    icon={<EyeOutlined />}
+                    icon={<FiEye />}
                     onClick={() => window.open(`/hackathon/${hackathon.id}`, '_blank')}
                     className="view-project-btn"
                   >

@@ -1,7 +1,7 @@
 /* HackathonDetail.css */
 .hackathon-detail-container {
-  background: #000000;
-  color: #000000;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
   padding: 2rem 0;
 }
@@ -18,15 +18,15 @@
 }
 
 .back-button {
-  background: #333333;
-  border-color: #555555;
-  color: #000000;
+  background: var(--btn-secondary-bg);
+  border-color: var(--card-border);
+  color: var(--btn-secondary-text);
 }
 
 .back-button:hover {
-  background: #555555;
-  border-color: #777777;
-  color: #000000;
+  background: var(--bg-secondary);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
 }
 
 /* Hero Section */
@@ -34,36 +34,36 @@
   text-align: center;
   margin-bottom: 4rem;
   padding: 3rem 2rem;
-  background: #111111;
+  background: var(--card-bg);
   border-radius: 20px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
 }
 
 .position-tag {
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
-  background: #333333 !important;
-  color: #000000 !important;
-  border: 1px solid #555555;
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--card-border);
 }
 
 .hackathon-title {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   font-size: 3rem !important;
   font-weight: 700 !important;
   margin-bottom: 1rem !important;
 }
 
 .event-name {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   font-size: 1.5rem !important;
   font-weight: 500 !important;
   margin-bottom: 2rem !important;
 }
 
 .hackathon-description {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   font-size: 1.2rem !important;
   max-width: 800px;
   margin: 0 auto 2rem;
@@ -73,17 +73,17 @@
 .quick-info {
   margin: 2rem 0;
   padding: 2rem;
-  background: #000000;
+  background: var(--card-bg);
   border-radius: 15px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
 }
 
 .quick-info .ant-statistic-title {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
 }
 
 .quick-info .ant-statistic-content {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
 }
 
 .action-buttons {
@@ -91,26 +91,28 @@
 }
 
 .action-buttons .ant-btn {
-  background: #333333;
-  border-color: #555555;
-  color: #000000;
+  background: var(--btn-secondary-bg);
+  border-color: var(--card-border);
+  color: var(--btn-secondary-text);
   margin: 0.5rem;
 }
 
 .action-buttons .ant-btn:hover {
-  background: #555555;
-  border-color: #777777;
-  color: #000000;
+  background: var(--bg-secondary);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
 }
 
 .action-buttons .ant-btn-primary {
-  background: #444444;
-  border-color: #666666;
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
 }
 
 .action-buttons .ant-btn-primary:hover {
-  background: #666666;
-  border-color: #888888;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--btn-primary-text);
 }
 
 /* Image Gallery */
@@ -119,16 +121,16 @@
 }
 
 .image-gallery-section h2 {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .project-carousel {
-  background: #111111;
+  background: var(--card-bg);
   border-radius: 15px;
   overflow: hidden;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
 }
 
 .carousel-slide {
@@ -164,7 +166,7 @@
 }
 
 .thumbnail.active {
-  border-color: #555555;
+  border-color: var(--accent-color);
   transform: scale(1.1);
 }
 
@@ -180,8 +182,8 @@
 }
 
 .detail-card {
-  background: #111111 !important;
-  border: 1px solid #333333 !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
   border-radius: 15px !important;
   height: 100%;
 }
@@ -191,14 +193,14 @@
 }
 
 .detail-card h3 {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .detail-card p {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -211,9 +213,9 @@
 }
 
 .tech-tag {
-  background: #333333 !important;
-  color: #000000 !important;
-  border: 1px solid #555555 !important;
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--card-border) !important;
   padding: 0.3rem 0.8rem;
   border-radius: 6px;
   font-weight: 500;
@@ -222,13 +224,13 @@
 .team-member {
   margin-bottom: 1rem;
   padding: 1rem;
-  background: #000000;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
 }
 
 .team-member .ant-typography {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
 }
 
 .features-list {
@@ -238,8 +240,8 @@
 
 .features-list li {
   padding: 0.8rem 0;
-  border-bottom: 1px solid #333333;
-  color: #000000;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--text-secondary);
   position: relative;
   padding-left: 2rem;
 }
@@ -248,7 +250,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #555555;
+  color: #52c41a;
   font-weight: bold;
 }
 
@@ -262,36 +264,36 @@
 }
 
 .timeline-section h2 {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   text-align: center;
   margin-bottom: 3rem;
 }
 
 .project-timeline {
-  background: #111111;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 15px;
-  border: 1px solid #333333;
+  border: 1px solid var(--card-border);
 }
 
 .project-timeline .ant-timeline-item-content {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   font-size: 1.1rem;
   margin-left: 1rem;
 }
 
 .project-timeline .ant-timeline-item-label {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   font-weight: 600;
 }
 
 .project-timeline .ant-timeline-item-tail {
-  border-left-color: #333333;
+  border-left-color: var(--card-border);
 }
 
 .project-timeline .ant-timeline-item-head {
-  background: #555555;
-  border-color: #777777;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /* Recognition */
@@ -300,7 +302,7 @@
 }
 
 .recognition-section h2 {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -312,8 +314,8 @@
 }
 
 .recognition-card {
-  background: #111111 !important;
-  border: 1px solid #333333 !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
   border-radius: 12px !important;
   text-align: center;
   padding: 1.5rem;
@@ -321,20 +323,20 @@
 }
 
 .recognition-card:hover {
-  border-color: #555555;
+  border-color: var(--accent-color);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px var(--card-shadow);
 }
 
 .recognition-icon {
   font-size: 2rem;
-  color: #555555;
+  color: #faad14;
   margin-bottom: 1rem;
   display: block;
 }
 
 .recognition-card .ant-typography {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   font-size: 1.1rem;
 }
 
@@ -344,36 +346,36 @@
 }
 
 .cta-card {
-  background: #111111 !important;
-  border: 1px solid #333333 !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
   border-radius: 20px !important;
   padding: 3rem 2rem;
 }
 
 .cta-card h3 {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
   margin-bottom: 1rem;
 }
 
 .cta-card p {
-  color: #000000 !important;
+  color: var(--text-secondary) !important;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
 
 .cta-card .ant-btn {
-  background: #333333;
-  border-color: #555555;
-  color: #000000;
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   padding: 1rem 2rem;
   height: auto;
   font-size: 1.1rem;
 }
 
 .cta-card .ant-btn:hover {
-  background: #555555;
-  border-color: #777777;
-  color: #000000;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--btn-primary-text);
 }
 
 /* Not Found */
@@ -456,27 +458,40 @@
 
 /* Dark theme overrides */
 .ant-carousel .slick-dots li button {
-  background: #333333;
+  background: var(--bg-secondary);
 }
 
 .ant-carousel .slick-dots li.slick-active button {
-  background: #555555;
+  background: var(--accent-color);
 }
 
 .ant-image-preview-close {
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .ant-divider {
-  border-color: #333333;
+  border-color: var(--card-border);
 }
 
 .ant-statistic-content-value {
-  color: #000000 !important;
+  color: var(--text-primary) !important;
 }
 
 .ant-tag {
-  background: #333333 !important;
-  color: #000000 !important;
-  border: 1px solid #555555 !important;
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+/* Carousel styling */
+.ant-carousel .slick-dots li button {
+  background: var(--bg-secondary);
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: var(--accent-color);
+}
+
+.ant-image-preview-close {
+  color: var(--text-primary);
 }

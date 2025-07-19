@@ -14,15 +14,31 @@
   --text-primary: #000000;
   --text-secondary: #6c757d;
   --text-accent: #212529;
-  --accent-color: #000000;
-  --accent-hover: #333333;
+  --accent-color: #1890ff;
+  --accent-hover: #40a9ff;
   --border-color: #dee2e6;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  --gradient-accent: linear-gradient(135deg, #000000 0%, #333333 100%);
+  --gradient-accent: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  
+  /* Card and Surface Colors */
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  
+  /* Form Colors */
+  --input-bg: #ffffff;
+  --input-border: #d9d9d9;
+  --input-focus: #1890ff;
+  
+  /* Button Colors */
+  --btn-primary-bg: #1890ff;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: #f0f0f0;
+  --btn-secondary-text: #000000;
 }
 
-[data-theme="dark"], .App.dark {
+[data-theme="dark"], .App.dark, html[data-theme="dark"], body[data-theme="dark"] {
   /* Dark Theme Colors */
   --bg-primary: #000000;
   --bg-secondary: #1a1a1a;
@@ -36,6 +52,22 @@
   --shadow-color: rgba(255, 255, 255, 0.1);
   --gradient-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   --gradient-accent: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  
+  /* Card and Surface Colors */
+  --card-bg: #1a1a1a;
+  --card-border: #333333;
+  --card-shadow: rgba(255, 255, 255, 0.05);
+  
+  /* Form Colors */
+  --input-bg: #2a2a2a;
+  --input-border: #444444;
+  --input-focus: #ffffff;
+  
+  /* Button Colors */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-secondary-bg: #2a2a2a;
+  --btn-secondary-text: #ffffff;
 }
 
 body {
@@ -44,12 +76,62 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .App {
   min-height: 100vh;
   position: relative;
   transition: all 0.3s ease;
+}
+
+/* Universal theme transition support */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Ant Design Theme Overrides */
+.ant-typography {
+  color: var(--text-primary) !important;
+}
+
+.ant-typography h1,
+.ant-typography h2, 
+.ant-typography h3,
+.ant-typography h4,
+.ant-typography h5,
+.ant-typography h6 {
+  color: var(--text-primary) !important;
+}
+
+.ant-typography.ant-typography-caption {
+  color: var(--text-secondary) !important;
+}
+
+.ant-card {
+  background: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+.ant-card-body {
+  color: var(--text-primary) !important;
+}
+
+.ant-statistic-title {
+  color: var(--text-secondary) !important;
+}
+
+.ant-statistic-content {
+  color: var(--text-primary) !important;
+}
+
+.ant-tag {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--card-border) !important;
 }
 
 /* Custom Scrollbar */
