@@ -20,46 +20,18 @@ const Hackathons = () => {
   // Fallback data in case API fails
   const fallbackHackathons = [
     {
-      id: 1,
-      title: "Smart City Solutions Hackathon",
-      event_name: "TechFest 2024",
-      position: "1st Place",
-      start_date: "2024-03-15",
-      description: "Developed an AI-powered traffic management system that reduces congestion by 30% using real-time data analysis.",
+      id: 99,
+      title: "Sample Hackathon",
+      organization: "Tech Community",
+      position: "Participant",
+      date: "2024-01-01",
+      description: "Sample hackathon entry for fallback display when API is unavailable.",
       technologies: [
-        { name: "React" }, { name: "Python" }, { name: "TensorFlow" }, { name: "MongoDB" }
+        { name: "React" }, { name: "Node.js" }
       ],
-      team_size_actual: 4,
-      prize_amount: 50000,
-      project_url: "https://github.com/sreecharan/smart-traffic"
-    },
-    {
-      id: 2,
-      title: "FinTech Innovation Challenge",
-      event_name: "Banking Summit 2024",
-      position: "1st Place",
-      start_date: "2024-02-20",
-      description: "Created a blockchain-based micro-lending platform for rural communities with 99.9% security rating.",
-      technologies: [
-        { name: "Blockchain" }, { name: "Solidity" }, { name: "React" }, { name: "Node.js" }
-      ],
-      team_size_actual: 3,
-      prize_amount: 75000,
-      project_url: "https://github.com/sreecharan/rural-lending"
-    },
-    {
-      id: 3,
-      title: "Healthcare AI Hackathon",
-      event_name: "MedTech 2023",
-      position: "2nd Place",
-      start_date: "2023-12-10",
-      description: "Built an AI diagnostic tool for early detection of diseases using medical imaging with 95% accuracy.",
-      technologies: [
-        { name: "Python" }, { name: "PyTorch" }, { name: "Flask" }, { name: "OpenCV" }
-      ],
-      team_size_actual: 5,
-      prize_amount: 30000,
-      project_url: "https://github.com/sreecharan/ai-diagnostic"
+      team_size: 4,
+      prize_money: "Experience",
+      main_image: "/photo/other/main.jpg"
     }
   ];
 
@@ -210,7 +182,7 @@ const Hackathons = () => {
                 cover={
                   <div className="hackathon-image">
                     <img 
-                      src={hackathon.image} 
+                      src={hackathon.main_image || hackathon.image} 
                       alt={hackathon.title}
                       onError={(e) => {
                         e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OTk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkhhY2thdGhvbiBQcm9qZWN0PC90ZXh0Pjwvc3ZnPg==';
@@ -246,14 +218,14 @@ const Hackathons = () => {
                 <div className="hackathon-header">
                   <h3 className="hackathon-title">{hackathon.title}</h3>
                   <Tag color="blue" className="event-tag">
-                    {hackathon.event_name}
+                    {hackathon.organization || hackathon.event_name}
                   </Tag>
                 </div>
 
                 <div className="hackathon-meta">
                   <div className="meta-item">
                     <CalendarOutlined />
-                    <span>{formatDate(hackathon.start_date)}</span>
+                    <span>{formatDate(hackathon.date || hackathon.start_date)}</span>
                   </div>
                   <div className="meta-item">
                     <TeamOutlined />
@@ -261,7 +233,7 @@ const Hackathons = () => {
                   </div>
                   <div className="meta-item prize">
                     <TrophyOutlined />
-                    <span>{formatPrize(hackathon.prize_amount)}</span>
+                    <span>{hackathon.prize_money || formatPrize(hackathon.prize_amount)}</span>
                   </div>
                 </div>
 
@@ -303,7 +275,18 @@ const Hackathons = () => {
           </div>
           <div className="stat-item">
             <div className="stat-number">
-              ₹{Math.round(hackathons.reduce((sum, h) => sum + (h.prize_amount || 0), 0) / 1000)}K+
+              ₹{Math.round(hackathons.reduce((sum, h) => {
+                let amount = 0;
+                if (h.prize_amount) amount = h.prize_amount;
+                else if (h.prize_money) {
+                  // Extract number from string like "₹15,000"
+                  const match = h.prize_money.match(/[\d,]+/);
+                  if (match) {
+                    amount = parseInt(match[0].replace(/,/g, ''));
+                  }
+                }
+                return sum + amount;
+              }, 0) / 1000)}K+
             </div>
             <div className="stat-label">Total Prize Money</div>
           </div>

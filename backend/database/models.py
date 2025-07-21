@@ -41,14 +41,17 @@ class HackathonModel:
         self.db = DatabaseManager()
     
     def get_all_hackathons(self) -> List[Dict]:
-        """Get all hackathons with basic info"""
+        """Get all hackathons with basic info and frontend images"""
         query = '''
             SELECT 
                 h.*,
+                fi.main_image_url,
+                fi.alt_text as image_alt_text,
                 COUNT(DISTINCT tm.id) as team_size_actual,
                 COUNT(DISTINCT pt.id) as timeline_count,
                 COUNT(DISTINCT r.id) as awards_count
             FROM hackathons h
+            LEFT JOIN frontend_images fi ON h.id = fi.hackathon_id
             LEFT JOIN team_members tm ON h.id = tm.hackathon_id
             LEFT JOIN project_timeline pt ON h.id = pt.hackathon_id
             LEFT JOIN recognition r ON h.id = r.hackathon_id
@@ -59,9 +62,12 @@ class HackathonModel:
     
     def get_hackathon_by_id(self, hackathon_id: int) -> Optional[Dict]:
         """Get detailed hackathon information by ID"""
-        # Get basic hackathon info
+        # Get basic hackathon info with frontend image
         query = '''
-            SELECT * FROM hackathons WHERE id = ?
+            SELECT h.*, fi.main_image_url, fi.alt_text as image_alt_text
+            FROM hackathons h
+            LEFT JOIN frontend_images fi ON h.id = fi.hackathon_id
+            WHERE h.id = ?
         '''
         hackathons = self.db.execute_query(query, (hackathon_id,))
         
