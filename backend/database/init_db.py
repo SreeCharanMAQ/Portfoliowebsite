@@ -246,7 +246,106 @@ def seed_sample_data():
             VALUES (?, ?, ?, ?)
         ''', tech)
     
-    # Insert sample hackathon
+    # Insert sample hackathon - DevFest Jalandhar (first entry)
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'DevFest Jalandhar 2024 - Winner',
+        'DevFest Jalandhar - Google Developer Groups',
+        'Won DevFest Jalandhar, a tech conference hosted by Google Developer Groups Jalandhar, bringing developers together to learn and innovate. Judges were so impressed that they awarded us monetary rewards and goodies, including exclusive event T-shirts. Connected with fellow developers and explored new ideas using Google\'s tools in an event filled with learning, collaboration, and unforgettable memories!',
+        '1st Place - Winner',
+        '2024-12-15',
+        '2024-12-15',
+        4,
+        'Jalandhar, Punjab, India',
+        15000.00,
+        'https://devfest-jalandhar.com',
+        'https://github.com/sreecharan/devfest-project',
+        'https://devfest-demo.com'
+    ))
+    
+    devfest_hackathon_id = cursor.lastrowid
+    
+    # Insert DevFest team members
+    devfest_team_members = [
+        (devfest_hackathon_id, 'Sree Charan', 'Full Stack Developer', 'https://linkedin.com/in/sreecharan', 'https://github.com/sreecharan', 'sree@example.com'),
+        (devfest_hackathon_id, 'Amit Gupta', 'Frontend Developer', 'https://linkedin.com/in/amitgupta', 'https://github.com/amit', 'amit@example.com'),
+        (devfest_hackathon_id, 'Badal Kumar', 'Backend Developer', 'https://linkedin.com/in/badalkumar', 'https://github.com/badal', 'badal@example.com'),
+        (devfest_hackathon_id, 'Rehan Mittal', 'UI/UX Designer', 'https://linkedin.com/in/rehanmittal', 'https://github.com/rehan', 'rehan@example.com')
+    ]
+    
+    for member in devfest_team_members:
+        cursor.execute('''
+            INSERT INTO team_members (hackathon_id, name, role, linkedin_url, github_url, email)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', member)
+    
+    # Insert DevFest project features
+    devfest_features = [
+        (devfest_hackathon_id, 'Built using Google\'s cutting-edge tools and technologies'),
+        (devfest_hackathon_id, 'Innovative solution that impressed industry experts'),
+        (devfest_hackathon_id, 'Collaborative development with cross-functional team'),
+        (devfest_hackathon_id, 'Real-time implementation and live demonstration'),
+        (devfest_hackathon_id, 'Scalable architecture with modern development practices'),
+        (devfest_hackathon_id, 'User-centric design with excellent user experience')
+    ]
+    
+    for i, (hid, feature) in enumerate(devfest_features):
+        cursor.execute('''
+            INSERT INTO project_features (hackathon_id, feature_text, feature_order)
+            VALUES (?, ?, ?)
+        ''', (hid, feature, i + 1))
+    
+    # Insert DevFest timeline
+    devfest_timeline = [
+        (devfest_hackathon_id, 'Registration & Team Formation', 'Registered for DevFest and formed team with fellow developers', '2024-12-15', 1, 1),
+        (devfest_hackathon_id, 'Problem Statement Analysis', 'Analyzed the challenge and brainstormed innovative solutions', '2024-12-15', 2, 2),
+        (devfest_hackathon_id, 'Design & Architecture', 'Created system design and user interface mockups', '2024-12-15', 3, 3),
+        (devfest_hackathon_id, 'Development Phase', 'Implemented the solution using Google\'s tools and technologies', '2024-12-15', 6, 4),
+        (devfest_hackathon_id, 'Testing & Integration', 'Tested the application and integrated all components', '2024-12-15', 2, 5),
+        (devfest_hackathon_id, 'Final Presentation', 'Presented the solution to judges and won the competition', '2024-12-15', 1, 6)
+    ]
+    
+    for item in devfest_timeline:
+        cursor.execute('''
+            INSERT INTO project_timeline (hackathon_id, phase_name, description, date_completed, duration_hours, timeline_order)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', item)
+    
+    # Insert DevFest recognition
+    devfest_recognition = [
+        (devfest_hackathon_id, 'winner', 'DevFest Winner', 'First place winner at DevFest Jalandhar 2024', '🏆'),
+        (devfest_hackathon_id, 'monetary', 'Monetary Rewards', 'Received monetary rewards from the judges', '💰'),
+        (devfest_hackathon_id, 'goodies', 'Event Goodies & T-Shirts', 'Exclusive event T-shirts and goodies from Google', '🎁'),
+        (devfest_hackathon_id, 'networking', 'Developer Networking', 'Connected with fellow developers and industry experts', '🤝')
+    ]
+    
+    for award in devfest_recognition:
+        cursor.execute('''
+            INSERT INTO recognition (hackathon_id, award_type, award_title, description, icon)
+            VALUES (?, ?, ?, ?, ?)
+        ''', award)
+    
+    # Insert DevFest gallery images
+    devfest_gallery = [
+        (devfest_hackathon_id, '/photo/devfest/main.jpg', 'DevFest Team with Winners Trophy', 1, True),
+        (devfest_hackathon_id, '/photo/devfest/1.jpg', 'DevFest Team Presentation', 2, False),
+        (devfest_hackathon_id, '/photo/devfest/2.jpg', 'DevFest Team Development Session', 3, False),
+        (devfest_hackathon_id, '/photo/devfest/3.jpg', 'DevFest Networking and Learning', 4, False),
+        (devfest_hackathon_id, '/photo/devfest/4.jpg', 'DevFest Awards Ceremony', 5, False),
+        (devfest_hackathon_id, '/photo/devfest/5.jpg', 'DevFest Team Celebration', 6, False)
+    ]
+    
+    for gallery_item in devfest_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery_item)
+    
+    # Insert sample hackathon - EdTech Innovation Sprint (second entry)
     cursor.execute('''
         INSERT INTO hackathons (
             title, event_name, description, position, start_date, end_date,
@@ -269,7 +368,7 @@ def seed_sample_data():
     
     hackathon_id = cursor.lastrowid
     
-    # Insert team members
+    # Insert team members for EdTech hackathon
     team_members = [
         (hackathon_id, 'Sree Charan', 'Full Stack Developer', 'https://linkedin.com/in/sreecharan', 'https://github.com/sreecharan', 'sree@example.com'),
         (hackathon_id, 'Alex Johnson', 'UI/UX Designer', 'https://linkedin.com/in/alexjohnson', 'https://github.com/alex', 'alex@example.com'),
@@ -328,7 +427,7 @@ def seed_sample_data():
             VALUES (?, ?, ?, ?, ?)
         ''', award)
     
-    # Link technologies to hackathon
+    # Link technologies to EdTech hackathon
     tech_names = ['React', 'Python', 'Flask', 'SQLite', 'JavaScript']
     for tech_name in tech_names:
         cursor.execute('SELECT id FROM technologies WHERE name = ?', (tech_name,))
@@ -337,6 +436,18 @@ def seed_sample_data():
             INSERT INTO hackathon_technologies (hackathon_id, technology_id)
             VALUES (?, ?)
         ''', (hackathon_id, tech_id))
+    
+    # Link technologies to DevFest hackathon
+    devfest_tech_names = ['JavaScript', 'Python', 'React', 'Node.js', 'HTML5', 'CSS3']
+    for tech_name in devfest_tech_names:
+        cursor.execute('SELECT id FROM technologies WHERE name = ?', (tech_name,))
+        tech_result = cursor.fetchone()
+        if tech_result:
+            tech_id = tech_result[0]
+            cursor.execute('''
+                INSERT INTO hackathon_technologies (hackathon_id, technology_id)
+                VALUES (?, ?)
+            ''', (devfest_hackathon_id, tech_id))
     
     # Insert sample work experiences
     work_experiences = [
@@ -469,6 +580,225 @@ def seed_sample_data():
             edu['institution_logo'], edu['institution_website']
         ))
     
+    # Insert Arena Hackathon
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'Arena Hackathon 2024',
+        'Arena Tech Challenge',
+        'Participated in Arena Hackathon, a competitive programming and development challenge focusing on innovative tech solutions.',
+        '2nd Place',
+        '2024-10-20',
+        '2024-10-22',
+        4,
+        'Arena Tech Hub, India',
+        25000.00,
+        'https://arena-project.com',
+        'https://github.com/sreecharan/arena-project',
+        'https://arena-demo.com'
+    ))
+    
+    arena_hackathon_id = cursor.lastrowid
+    
+    # Insert Arena gallery images
+    arena_gallery = [
+        (arena_hackathon_id, '/photo/arena/main.jpg', 'Arena Hackathon Main Photo', 0, True),
+        (arena_hackathon_id, '/photo/arena/1.jpg', 'Arena Hackathon Photo 1', 1, False),
+        (arena_hackathon_id, '/photo/arena/2.jpg', 'Arena Hackathon Photo 2', 2, False),
+        (arena_hackathon_id, '/photo/arena/3.jpg', 'Arena Hackathon Photo 3', 3, False)
+    ]
+    
+    for gallery in arena_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery)
+    
+    # Insert Code-a-Haunt Hackathon
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'Code-a-Haunt Halloween Hackathon',
+        'Code-a-Haunt 2024',
+        'Halloween-themed hackathon where we built spooky and creative tech solutions with a horror twist.',
+        '3rd Place',
+        '2024-10-31',
+        '2024-11-01',
+        3,
+        'Online Event',
+        15000.00,
+        'https://code-a-haunt.com',
+        'https://github.com/sreecharan/code-a-haunt',
+        'https://haunt-demo.com'
+    ))
+    
+    haunt_hackathon_id = cursor.lastrowid
+    
+    # Insert Code-a-Haunt gallery
+    cursor.execute('''
+        INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (haunt_hackathon_id, '/photo/code-a-haunt/main.jpg', 'Code-a-Haunt Main Photo', 0, True))
+    
+    # Insert Code of Duty Hackathon
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'Code of Duty - Gaming Hackathon',
+        'Code of Duty 2024',
+        'Gaming-themed hackathon inspired by Call of Duty, focusing on building gaming applications and interactive experiences.',
+        '1st Place',
+        '2024-09-15',
+        '2024-09-17',
+        5,
+        'Gaming Arena, Bangalore',
+        50000.00,
+        'https://code-of-duty.com',
+        'https://github.com/sreecharan/code-of-duty',
+        'https://cod-demo.com'
+    ))
+    
+    cod_hackathon_id = cursor.lastrowid
+    
+    # Insert Code of Duty gallery
+    cod_gallery = [
+        (cod_hackathon_id, '/photo/code-of-duty/mian.jpg', 'Code of Duty Main Photo', 0, True),
+        (cod_hackathon_id, '/photo/code-of-duty/1.jpg', 'Code of Duty Photo 1', 1, False),
+        (cod_hackathon_id, '/photo/code-of-duty/2.jpg', 'Code of Duty Photo 2', 2, False),
+        (cod_hackathon_id, '/photo/code-of-duty/3.jpg', 'Code of Duty Photo 3', 3, False),
+        (cod_hackathon_id, '/photo/code-of-duty/4.jpg', 'Code of Duty Photo 4', 4, False),
+        (cod_hackathon_id, '/photo/code-of-duty/5.jpg', 'Code of Duty Photo 5', 5, False)
+    ]
+    
+    for gallery in cod_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery)
+    
+    # Insert CodingBlocks LPU Hackathon
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'CodingBlocks LPU Hackathon',
+        'CodingBlocks x LPU Tech Fest',
+        'Collaboration between CodingBlocks and LPU (Lovely Professional University) for a major tech hackathon focusing on educational technology solutions.',
+        '2nd Place',
+        '2024-08-25',
+        '2024-08-27',
+        4,
+        'LPU Campus, Punjab',
+        30000.00,
+        'https://codingblocks-lpu.com',
+        'https://github.com/sreecharan/cb-lpu-project',
+        'https://cb-lpu-demo.com'
+    ))
+    
+    cb_hackathon_id = cursor.lastrowid
+    
+    # Insert CodingBlocks LPU gallery
+    cb_gallery = [
+        (cb_hackathon_id, '/photo/codingblockslpu/main.jpg', 'CodingBlocks LPU Main Photo', 0, True),
+        (cb_hackathon_id, '/photo/codingblockslpu/1.jpg', 'CodingBlocks LPU Photo 1', 1, False),
+        (cb_hackathon_id, '/photo/codingblockslpu/2.jpg', 'CodingBlocks LPU Photo 2', 2, False),
+        (cb_hackathon_id, '/photo/codingblockslpu/3.jpg', 'CodingBlocks LPU Photo 3', 3, False)
+    ]
+    
+    for gallery in cb_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery)
+    
+    # Insert Microsoft Hackathon
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'Microsoft Azure Hackathon 2024',
+        'Microsoft Azure Developer Challenge',
+        'Official Microsoft Azure hackathon focusing on cloud-native applications and AI integration. Built innovative solutions using Microsoft\'s cloud ecosystem.',
+        '1st Place',
+        '2024-07-10',
+        '2024-07-12',
+        4,
+        'Microsoft Office, Hyderabad',
+        75000.00,
+        'https://azure-project.com',
+        'https://github.com/sreecharan/azure-hackathon',
+        'https://azure-demo.com'
+    ))
+    
+    ms_hackathon_id = cursor.lastrowid
+    
+    # Insert Microsoft gallery
+    ms_gallery = [
+        (ms_hackathon_id, '/photo/microsoft/main.jpg', 'Microsoft Hackathon Main Photo', 0, True),
+        (ms_hackathon_id, '/photo/microsoft/1.jpg', 'Microsoft Hackathon Photo 1', 1, False),
+        (ms_hackathon_id, '/photo/microsoft/2.jpg', 'Microsoft Hackathon Photo 2', 2, False),
+        (ms_hackathon_id, '/photo/microsoft/3.jpg', 'Microsoft Hackathon Photo 3', 3, False),
+        (ms_hackathon_id, '/photo/microsoft/4.jpg', 'Microsoft Hackathon Photo 4', 4, False),
+        (ms_hackathon_id, '/photo/microsoft/5.jpg', 'Microsoft Hackathon Photo 5', 5, False),
+        (ms_hackathon_id, '/photo/microsoft/6.jpg', 'Microsoft Hackathon Photo 6', 6, False),
+        (ms_hackathon_id, '/photo/microsoft/7.jpg', 'Microsoft Hackathon Photo 7', 7, False)
+    ]
+    
+    for gallery in ms_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery)
+    
+    # Insert Other/General Hackathons
+    cursor.execute('''
+        INSERT INTO hackathons (
+            title, event_name, description, position, start_date, end_date,
+            team_size, location, prize_amount, project_url, github_url, demo_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        'Open Source Innovation Challenge',
+        'Various Tech Events',
+        'Collection of various hackathon participations and open source contributions across different tech events and challenges.',
+        'Participant',
+        '2024-06-01',
+        '2024-11-30',
+        1,
+        'Various Locations',
+        0.00,
+        'https://opensource-projects.com',
+        'https://github.com/sreecharan/opensource',
+        'https://oss-demo.com'
+    ))
+    
+    other_hackathon_id = cursor.lastrowid
+    
+    # Insert Other gallery
+    other_gallery = [
+        (other_hackathon_id, '/photo/other/1.png', 'Open Source Photo 1', 0, True),
+        (other_hackathon_id, '/photo/other/2.png', 'Open Source Photo 2', 1, False),
+        (other_hackathon_id, '/photo/other/3.jpg', 'Open Source Photo 3', 2, False)
+    ]
+    
+    for gallery in other_gallery:
+        cursor.execute('''
+            INSERT INTO project_gallery (hackathon_id, image_url, image_alt, image_order, is_featured)
+            VALUES (?, ?, ?, ?, ?)
+        ''', gallery)
+
     # Insert sample skills
     skills_data = [
         ('JavaScript', 'Programming Languages', 90, 3),
