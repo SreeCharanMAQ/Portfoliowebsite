@@ -41,17 +41,14 @@ class HackathonModel:
         self.db = DatabaseManager()
     
     def get_all_hackathons(self) -> List[Dict]:
-        """Get all hackathons with basic info and frontend images"""
+        """Get all hackathons with basic info"""
         query = '''
             SELECT 
                 h.*,
-                fi.main_image_url,
-                fi.alt_text as image_alt_text,
                 COUNT(DISTINCT tm.id) as team_size_actual,
                 COUNT(DISTINCT pt.id) as timeline_count,
                 COUNT(DISTINCT r.id) as awards_count
             FROM hackathons h
-            LEFT JOIN frontend_images fi ON h.id = fi.hackathon_id
             LEFT JOIN team_members tm ON h.id = tm.hackathon_id
             LEFT JOIN project_timeline pt ON h.id = pt.hackathon_id
             LEFT JOIN recognition r ON h.id = r.hackathon_id
@@ -62,12 +59,9 @@ class HackathonModel:
     
     def get_hackathon_by_id(self, hackathon_id: int) -> Optional[Dict]:
         """Get detailed hackathon information by ID"""
-        # Get basic hackathon info with frontend image
+        # Get basic hackathon info
         query = '''
-            SELECT h.*, fi.main_image_url, fi.alt_text as image_alt_text
-            FROM hackathons h
-            LEFT JOIN frontend_images fi ON h.id = fi.hackathon_id
-            WHERE h.id = ?
+            SELECT * FROM hackathons WHERE id = ?
         '''
         hackathons = self.db.execute_query(query, (hackathon_id,))
         
@@ -374,3 +368,80 @@ class SkillModel:
             categorized_skills[category].append(skill)
         
         return categorized_skills
+
+class ProjectModel:
+    def __init__(self):
+        self.db = DatabaseManager()
+    
+    def get_all_projects(self) -> List[Dict]:
+        """Get all projects with basic info"""
+        query = '''
+            SELECT 
+                p.*,
+                COUNT(DISTINCT pt.id) as technology_count,
+                COUNT(DISTINCT pf.id) as feature_count
+            FROM projects p
+            LEFT JOIN project_technologies pt ON p.id = pt.project_id
+            LEFT JOIN project_features pf ON p.id = pf.project_id
+            GROUP BY p.id
+            ORDER BY p.featured DESC, p.created_at DESC
+        '''
+        return self.db.execute_query(query)
+    
+    def get_project_by_id(self, project_id: int) -> Optional[Dict]:
+        """Get detailed project information by ID"""
+        # Get basic project info
+        query = '''
+            SELECT * FROM projects WHERE id = ?
+        '''
+        projects = self.db.execute_query(query, (project_id,))
+        
+        if not projects:
+            return None
+        
+        project = projects[0]
+        
+        # Get technologies
+        tech_query = '''
+            SELECT t.* FROM technologies t
+            JOIN project_technologies pt ON t.id = pt.technology_id
+            WHERE pt.project_id = ?
+        '''
+        project['technologies'] = self.db.execute_query(tech_query, (project_id,))
+        
+        # Get features
+        features_query = '''
+            SELECT * FROM project_features 
+            WHERE project_id = ? 
+            ORDER BY feature_order
+        '''
+        project['features'] = self.db.execute_query(features_query, (project_id,))
+        
+        # Get gallery
+        gallery_query = '''
+            SELECT * FROM project_gallery 
+            WHERE project_id = ? 
+            ORDER BY image_order, id
+        '''
+        project['gallery'] = self.db.execute_query(gallery_query, (project_id,))
+        
+        return project
+    
+    def get_projects_by_category(self, category: str) -> List[Dict]:
+        """Get projects by category"""
+        query = '''
+            SELECT * FROM projects 
+            WHERE category = ? 
+            ORDER BY featured DESC, created_at DESC
+        '''
+        return self.db.execute_query(query, (category,))
+    
+    def get_featured_projects(self, limit: int = 3) -> List[Dict]:
+        """Get featured projects"""
+        query = '''
+            SELECT * FROM projects 
+            WHERE featured = 1 
+            ORDER BY created_at DESC 
+            LIMIT ?
+        '''
+        return self.db.execute_query(query, (limit,))

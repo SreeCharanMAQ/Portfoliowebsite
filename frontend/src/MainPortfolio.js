@@ -9,6 +9,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
+import ProjectsSimple from './components/ProjectsSimple';
 import Hackathons from './components/Hackathons';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
@@ -131,6 +132,7 @@ function App() {
               <Skills />
               <Experience triggerConfetti={triggerCelebrationConfetti} />
               <Education />
+              <ProjectsSimple triggerConfetti={triggerCelebrationConfetti} />
               <Hackathons triggerConfetti={triggerCelebrationConfetti} />
               <Contact triggerConfetti={triggerCelebrationConfetti} />
             </motion.main>

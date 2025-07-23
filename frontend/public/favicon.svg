@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="31" fill="#4a89dc" />
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="white" stroke-width="1.5" />
+  
+  <!-- Text content - Initials -->
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">SC</text>
+  
+  <!-- Small decorative element -->
+  <path d="M18,44 L46,44" stroke="white" stroke-width="1.5" fill="none" />
+</svg>

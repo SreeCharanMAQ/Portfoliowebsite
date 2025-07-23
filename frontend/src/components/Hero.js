@@ -7,6 +7,7 @@ import Typed from 'typed.js';
 import LottieAnimation from './LottieAnimation';
 import './Hero.css';
 
+
 const { Title, Paragraph } = Typography;
 
 const Hero = ({ triggerConfetti }) => {

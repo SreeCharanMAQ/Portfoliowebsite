@@ -7,7 +7,7 @@ import logging
 from datetime import datetime
 from auth import AuthManager, token_required
 from chatbot import portfolio_chatbot
-from database.models import HackathonModel, TechnologyModel, UserModel, WorkExperienceModel, EducationModel, SkillModel
+from database.models import HackathonModel, TechnologyModel, UserModel, WorkExperienceModel, EducationModel, SkillModel, ProjectModel
 
 # Load environment variables
 load_dotenv()
@@ -36,6 +36,7 @@ user_model = UserModel()
 work_experience_model = WorkExperienceModel()
 education_model = EducationModel()
 skill_model = SkillModel()
+project_model = ProjectModel()
 
 mail = Mail(app)
 
@@ -297,35 +298,22 @@ def contact():
 
 @app.route('/api/projects')
 def get_projects():
-    """Get portfolio projects"""
-    projects = [
-        {
-            'id': 1,
-            'title': 'E-Commerce Platform',
-            'description': 'A full-stack e-commerce application with React frontend and Python Flask backend.',
-            'technologies': ['React', 'Flask', 'MongoDB', 'Stripe API', 'JWT'],
-            'github': 'https://github.com/example/ecommerce',
-            'live': 'https://example-ecommerce.com',
-            'category': 'Full Stack',
-            'featured': True
-        },
-        {
-            'id': 2,
-            'title': 'Task Management App',
-            'description': 'A collaborative task management application with real-time updates.',
-            'technologies': ['React', 'Node.js', 'Socket.io', 'PostgreSQL', 'Redux'],
-            'github': 'https://github.com/example/taskmanager',
-            'live': 'https://example-tasks.com',
-            'category': 'Web App',
-            'featured': True
-        },
-        # Add more projects as needed
-    ]
-    
-    return jsonify({
-        'success': True,
-        'projects': projects
-    })
+    """Get all projects from database"""
+    try:
+        projects = project_model.get_all_projects()
+        
+        return jsonify({
+            'success': True,
+            'projects': projects,
+            'count': len(projects)
+        })
+        
+    except Exception as e:
+        logger.error(f"Error fetching projects: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to fetch projects'
+        }), 500
 
 # Hackathon API Routes
 @app.route('/api/hackathons', methods=['GET'])
@@ -480,6 +468,71 @@ def search_hackathons():
             'error': 'Search failed'
         }), 500
 
+# Additional Project API Routes
+@app.route('/api/projects/<int:project_id>', methods=['GET'])
+def get_project_detail(project_id):
+    """Get detailed project information"""
+    try:
+        project = project_model.get_project_by_id(project_id)
+        
+        if not project:
+            return jsonify({
+                'success': False,
+                'error': 'Project not found'
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'project': project
+        })
+        
+    except Exception as e:
+        logger.error(f"Error fetching project {project_id}: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to fetch project details'
+        }), 500
+
+@app.route('/api/projects/category/<category>', methods=['GET'])
+def get_projects_by_category(category):
+    """Get projects by category"""
+    try:
+        projects = project_model.get_projects_by_category(category)
+        
+        return jsonify({
+            'success': True,
+            'projects': projects,
+            'count': len(projects),
+            'category': category
+        })
+        
+    except Exception as e:
+        logger.error(f"Error fetching projects for category {category}: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to fetch projects'
+        }), 500
+
+@app.route('/api/projects/featured', methods=['GET'])
+def get_featured_projects():
+    """Get featured projects"""
+    try:
+        limit = request.args.get('limit', 3, type=int)
+        projects = project_model.get_featured_projects(limit)
+        
+        return jsonify({
+            'success': True,
+            'projects': projects,
+            'count': len(projects)
+        })
+        
+    except Exception as e:
+        logger.error(f"Error fetching featured projects: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Failed to fetch featured projects'
+        }), 500
+
 # Work Experience API Routes
 @app.route('/api/work-experience', methods=['GET'])
 def get_work_experiences():
@@ -600,73 +653,6 @@ def get_skills():
             'success': False,
             'error': 'Failed to fetch skills'
         }), 500
-
-# Resume API Route (Updated to use database)
-@app.route('/api/resume', methods=['GET'])
-def get_resume():
-    """Get complete resume data from database"""
-    try:
-        # Get work experiences
-        work_experiences = work_experience_model.get_all_work_experiences()
-        
-        # Get education
-        education = education_model.get_all_education()
-        
-        # Get skills by category
-        skills = skill_model.get_skills_by_category()
-        
-        # Get hackathons (projects)
-        hackathons = hackathon_model.get_all_hackathons()
-        
-        resume_data = {
-            'personal_info': {
-                'name': 'Sree Charan',
-                'title': 'Full Stack Developer',
-                'email': 'sreecharan@maqsoftware.com',
-                'phone': '+91 9876543210',
-                'location': 'Hyderabad, India',
-                'linkedin': 'https://linkedin.com/in/sreecharan',
-                'github': 'https://github.com/sreecharan',
-                'website': 'https://sreecharan-portfolio.com'
-            },
-            'summary': 'Passionate Full Stack Developer with expertise in React, Python, and cloud technologies. Proven track record in developing scalable web applications and winning hackathons.',
-            'work_experience': work_experiences,
-            'education': education,
-            'skills': skills,
-            'projects': hackathons[:5],  # Top 5 hackathons as projects
-            'achievements': [
-                '7+ Hackathon victories with innovative solutions',
-                'Developed applications serving 10,000+ users',
-                'Optimized performance resulting in 40% faster load times',
-                'Mentored junior developers and conducted code reviews'
-            ]
-        }
-        
-        return jsonify({
-            'success': True,
-            'resume': resume_data
-        })
-        
-    except Exception as e:
-        logger.error(f"Error fetching resume: {str(e)}")
-        return jsonify({
-            'success': False,
-            'error': 'Failed to fetch resume data'
-        }), 500
-
-@app.errorhandler(404)
-def not_found(error):
-    return jsonify({
-        'success': False,
-        'error': 'Endpoint not found'
-    }), 404
-
-@app.errorhandler(500)
-def internal_error(error):
-    return jsonify({
-        'success': False,
-        'error': 'Internal server error'
-    }), 500
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
