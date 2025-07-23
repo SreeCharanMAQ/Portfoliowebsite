@@ -10,7 +10,7 @@ A modern, responsive portfolio website built with React frontend and Python Flas
 - **Single Page Application**: Smooth scrolling navigation between sections
 - **Interactive Animations**: Framer Motion animations throughout
 - **Contact Form**: Working contact form with backend integration
-- **Performance Optimized**: Fast loading and smooth interactions
+- **Performance Optimized**: Fast loading and smooth interactionsdf 
 
 ## 🛠️ Tech Stack
 
