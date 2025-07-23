@@ -4,16 +4,16 @@
   right: 2rem;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #1890ff;
+  border: none;
   border-radius: 50%;
-  color: #ffffff;
+  color: white;
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.4),
+    0 8px 25px rgba(24, 144, 255, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.1);
-  z-index: 1000;
+  z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,10 +22,13 @@
 
 .chatbot-toggle:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
   box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.5),
-    0 0 0 2px rgba(74, 144, 226, 0.3);
+    0 12px 35px rgba(24, 144, 255, 0.5),
+    0 0 0 2px rgba(24, 144, 255, 0.3);
+}
+
+.chatbot-toggle:active {
+  transform: translateY(0);
 }
 
 .chatbot-window {

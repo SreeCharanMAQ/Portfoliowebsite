@@ -1,0 +1,620 @@
+{
+  "name": "K Sree Charan",
+  "title": "Passionate Full Stack Developer & AI Enthusiast",
+  "summary": "Dedicated software engineer with strong foundation in both frontend and backend development. Passionate about turning innovative ideas into reality through efficient, scalable code and cutting-edge AI solutions.",
+  "quote": "Code is like humor. When you have to explain it, it's bad. - Cory House",
+  "bio": "I'm a passionate full-stack developer who loves creating innovative solutions that make a real impact. With expertise in React, Python, and AI/ML, I've won multiple hackathons and built projects that solve real-world problems. I believe in continuous learning and pushing the boundaries of what's possible with technology.",
+  
+  "contact": {
+    "email": "sreecharan9484@gmail.com",
+    "mobile": "+91-9958389484",
+    "location": "Hyderabad, India",
+    "linkedin": "https://www.linkedin.com/in/sree9484/",
+    "github": "https://github.com/SreeCharan1234",
+    "portfolio": "https://sreecharan9484.vercel.app/",
+    "leetcode": "https://leetcode.com/u/sreecharan9484/",
+    "codechef": "https://www.codechef.com/users/sreecharan9484",
+    "codolio": "https://codolio.com/profile/Sree",
+    "instagram": "https://instagram.com/sreecharan9484",
+    "twitter": "https://twitter.com/sreecharan9484"
+  },
+
+  "soft_skills": [
+    {
+      "skill": "Problem-solving mindset",
+      "description": "Ability to break down complex problems into manageable solutions",
+      "icon": "🧠"
+    },
+    {
+      "skill": "Fast learner & adaptable",
+      "description": "Quick to master new technologies and adapt to changing requirements",
+      "icon": "⚡"
+    },
+    {
+      "skill": "Great team collaborator",
+      "description": "Excellent communication and teamwork skills in cross-functional teams",
+      "icon": "🤝"
+    },
+    {
+      "skill": "Creative & innovative",
+      "description": "Think outside the box to create unique and effective solutions",
+      "icon": "💡"
+    },
+    {
+      "skill": "Leadership qualities",
+      "description": "Natural ability to guide teams and mentor junior developers",
+      "icon": "👑"
+    },
+    {
+      "skill": "Time management",
+      "description": "Efficient at prioritizing tasks and meeting deadlines",
+      "icon": "⏰"
+    }
+  ],
+
+  "skills": {
+    "frontend": {
+      "React": { "level": "90%", "years": 3, "projects": 15 },
+      "JavaScript": { "level": "88%", "years": 4, "projects": 20 },
+      "TypeScript": { "level": "85%", "years": 2, "projects": 8 },
+      "HTML5": { "level": "95%", "years": 5, "projects": 25 },
+      "CSS3": { "level": "90%", "years": 5, "projects": 25 },
+      "Tailwind CSS": { "level": "88%", "years": 2, "projects": 12 },
+      "Redux": { "level": "82%", "years": 2, "projects": 6 },
+      "Next.js": { "level": "80%", "years": 1, "projects": 4 },
+      "Vue.js": { "level": "75%", "years": 1, "projects": 3 }
+    },
+    "backend": {
+      "Python": { "level": "90%", "years": 4, "projects": 18 },
+      "Node.js": { "level": "85%", "years": 3, "projects": 12 },
+      "Flask": { "level": "88%", "years": 3, "projects": 10 },
+      "Django": { "level": "80%", "years": 2, "projects": 6 },
+      "Express.js": { "level": "82%", "years": 2, "projects": 8 },
+      "FastAPI": { "level": "78%", "years": 1, "projects": 4 }
+    },
+    "databases": {
+      "MongoDB": { "level": "85%", "years": 3, "projects": 12 },
+      "MySQL": { "level": "80%", "years": 3, "projects": 10 },
+      "PostgreSQL": { "level": "75%", "years": 2, "projects": 6 },
+      "Redis": { "level": "70%", "years": 1, "projects": 3 }
+    },
+    "cloud": {
+      "AWS": { "level": "82%", "years": 2, "projects": 8 },
+      "Firebase": { "level": "85%", "years": 2, "projects": 10 },
+      "Google Cloud": { "level": "75%", "years": 1, "projects": 4 },
+      "Vercel": { "level": "88%", "years": 2, "projects": 12 }
+    },
+    "tools": {
+      "Git": { "level": "90%", "years": 4, "projects": "All" },
+      "Docker": { "level": "75%", "years": 2, "projects": 6 },
+      "CI/CD": { "level": "78%", "years": 2, "projects": 8 },
+      "VS Code": { "level": "95%", "years": 5, "projects": "All" },
+      "Figma": { "level": "70%", "years": 2, "projects": 8 }
+    },
+    "ai_ml": {
+      "TensorFlow": { "level": "80%", "years": 2, "projects": 6 },
+      "PyTorch": { "level": "75%", "years": 1, "projects": 4 },
+      "OpenAI API": { "level": "85%", "years": 1, "projects": 8 },
+      "LangChain": { "level": "78%", "years": 1, "projects": 5 },
+      "Computer Vision": { "level": "72%", "years": 1, "projects": 3 }
+    }
+  },
+
+  "experience": [
+    {
+      "company": "MAQ Software",
+      "role": "Full Stack Developer",
+      "type": "Full-time",
+      "location": "Hyderabad, India",
+      "dates": "2023 - Present",
+      "duration": "1+ years",
+      "description": "Working on enterprise-level applications with cutting-edge technologies",
+      "achievements": [
+        "🏆 Top Performer of the Quarter",
+        "🚀 Innovation Award Winner",
+        "👥 Team Lead for React Migration Project",
+        "📈 Maintained React apps serving 10k+ active users",
+        "⚡ Built scalable Flask/Node.js APIs handling 1M+ requests",
+        "🎨 Improved UX resulting in 40% increase in user engagement",
+        "⚡ Optimized application performance achieving 50% faster load times"
+      ],
+      "technologies": ["React", "Python", "Flask", "JavaScript", "MongoDB", "AWS", "Docker"],
+      "photos": [
+        { "url": "../../public/images/experience/maq/office.jpg", "description": "MAQ Software office workspace" },
+        { "url": "../../public/images/experience/maq/team.jpg", "description": "Working with the development team" },
+        { "url": "../../public/images/experience/maq/project.jpg", "description": "Leading a React migration project" },
+        { "url": "../../public/images/experience/maq/award.jpg", "description": "Receiving innovation award" }
+      ]
+    },
+    {
+      "company": "Tech Innovations Ltd",
+      "role": "Software Developer Intern",
+      "type": "Internship",
+      "location": "Bangalore, India",
+      "dates": "2022 - 2023",
+      "duration": "6 months",
+      "description": "Gained hands-on experience in full-stack development and agile methodologies",
+      "achievements": [
+        "🏆 Best Intern Award",
+        "⚡ Quick Learner Recognition",
+        "💻 Built responsive React/TypeScript frontend from scratch",
+        "📊 Contributed to internal analytics dashboard",
+        "🎓 Learned clean code principles, version control & CI/CD pipelines"
+      ],
+      "technologies": ["React", "TypeScript", "HTML/CSS", "Git", "REST APIs"],
+      "photos": [
+        { "url": "../../public/images/experience/tech/office.jpg", "description": "Tech Innovations office environment" },
+        { "url": "../../public/images/experience/tech/coding.jpg", "description": "Working on React dashboard" },
+        { "url": "../../public/images/experience/tech/presentation.jpg", "description": "Final project presentation" }
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science Engineering",
+      "institution": "Lovely Professional University",
+      "location": "Punjab, India",
+      "dates": "2019 - 2023",
+      "duration": "4 years",
+      "gpa": "8.5/10",
+      "highlights": [
+        "🏆 Dean's List for Academic Excellence (6 semesters)",
+        "👑 President of Computer Science Club",
+        "🏅 Winner of Inter-College Coding Competition 2022",
+        "📝 Published research paper on 'Modern Web Technologies'",
+        "🤝 Led team of 15 students in tech fest organization",
+        "💡 Developed 5+ major projects during coursework"
+      ],
+      "coursework": [
+        "Data Structures & Algorithms",
+        "Database Management Systems",
+        "Web Technologies",
+        "Machine Learning",
+        "Software Engineering",
+        "Computer Networks",
+        "Operating Systems",
+        "Artificial Intelligence"
+      ],
+      "photos": [
+        { "url": "../../public/images/education/lpu/campus.jpg", "description": "LPU campus during orientation week" },
+        { "url": "../../public/images/education/lpu/lab.jpg", "description": "Computer Science lab during web development session" },
+        { "url": "../../public/images/education/lpu/project.jpg", "description": "Final year project presentation" },
+        { "url": "../../public/images/education/lpu/graduation.jpg", "description": "Graduation ceremony moment" },
+        { "url": "../../public/images/education/lpu/club.jpg", "description": "Leading Computer Science Club activities" },
+        { "url": "../../public/images/education/lpu/coding.jpg", "description": "Coding competition victory moment" }
+      ]
+    },
+    {
+      "degree": "Senior Secondary (12th)",
+      "stream": "Science (PCM - Physics, Chemistry, Mathematics)",
+      "institution": "Kendriya Vidyalaya",
+      "location": "Hyderabad, India",
+      "dates": "2017 - 2019",
+      "duration": "2 years",
+      "gpa": "92%",
+      "highlights": [
+        "🏆 School Topper in Computer Science",
+        "🥇 State Level Mathematics Olympiad Participant",
+        "👨‍💼 Science Club Secretary",
+        "📚 Consistent academic performer",
+        "💻 Started learning programming basics"
+      ],
+      "subjects": [
+        "Physics",
+        "Chemistry", 
+        "Mathematics",
+        "Computer Science",
+        "English"
+      ],
+      "photos": [
+        { "url": "../../public/images/education/kv/school.jpg", "description": "Kendriya Vidyalaya school building" },
+        { "url": "../../public/images/education/kv/lab.jpg", "description": "Computer Science lab practicals" },
+        { "url": "../../public/images/education/kv/exhibition.jpg", "description": "Science exhibition participation" },
+        { "url": "../../public/images/education/kv/olympiad.jpg", "description": "Mathematics Olympiad preparation" },
+        { "url": "../../public/images/education/kv/results.jpg", "description": "12th grade results announcement" }
+      ]
+    }
+  ],
+
+  "certifications": [
+    {
+      "title": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "year": 2023,
+      "id": "AWS-123456",
+      "description": "Validated AWS cloud knowledge including pricing, architecture, and support services",
+      "skills": ["Cloud Computing", "AWS Services", "Security", "Pricing"],
+      "photo": "/images/certifications/aws.jpg"
+    },
+    {
+      "title": "Meta React Developer Certification",
+      "issuer": "Meta (Facebook)",
+      "year": 2023,
+      "id": "META-789012",
+      "description": "Demonstrated proficiency in building interactive React UIs and modern front-end development",
+      "skills": ["React", "JavaScript", "Frontend Development", "Component Architecture"],
+      "photo": "/images/certifications/meta-react.jpg"
+    },
+    {
+      "title": "Python for Data Science",
+      "issuer": "IBM",
+      "year": 2022,
+      "id": "IBM-345678",
+      "description": "Mastered Python programming fundamentals and data science introduction",
+      "skills": ["Python", "Data Analysis", "Machine Learning Basics", "Pandas"],
+      "photo": "/images/certifications/ibm-python.jpg"
+    },
+    {
+      "title": "Full Stack Web Development Specialization",
+      "issuer": "Coursera",
+      "year": 2022,
+      "id": "COURSERA-901234",
+      "description": "Comprehensive course covering front-end, back-end, database integration, and deployment",
+      "skills": ["Full Stack Development", "MERN Stack", "Database Design", "Deployment"],
+      "photo": "../../public/images/certifications/coursera-fullstack.jpg"
+    }
+  ],
+
+  "stats": {
+    "years_study": 4,
+    "cgpa": 8.5,
+    "certifications": 4,
+    "courses_completed": 15,
+    "hackathons_won": 7,
+    "projects_completed": 20,
+    "github_repos": 45,
+    "lines_of_code": 50000,
+    "coffee_cups": 999
+  },
+
+  "hackathons": [
+    {
+      "id": 1,
+      "title": "DevFest Jalandhar 2024",
+      "organization": "Google Developer Groups Jalandhar",
+      "position": "Winner 🏆",
+      "date": "December 2024",
+      "team_size": 4,
+      "prize_money": "₹15,000",
+      "description": "Won DevFest Jalandhar, a tech conference hosted by Google Developer Groups Jalandhar, bringing developers together to learn and innovate. Judges were so impressed that they awarded us monetary rewards and goodies, including exclusive event T-shirts.",
+      "challenge": "48 hours hackathon to build innovative solutions using Google technologies",
+      "solution": "Created an integrated platform that leveraged Google's tools for solving real-world problems",
+      "learning": "Gained deep insights into Google's development ecosystem and cloud technologies",
+      "technologies": ["React", "Node.js", "AI/ML", "Google Cloud"],
+      "photos": [
+        { "url": "../../public/photo/devfest/main.jpg", "description": "Winner certificate and trophy moment" },
+        { "url": "../../public/photo/devfest/team.jpg", "description": "Team collaboration during development" },
+        { "url": "../../public/photo/devfest/presentation.jpg", "description": "Final project presentation to judges" },
+        { "url": "../../public/photo/devfest/google_tools.jpg", "description": "Working with Google Cloud tools" },
+        { "url": "../../public/photo/devfest/networking.jpg", "description": "Networking with Google developers" },
+        { "url": "../../public/photo/devfest/goodies.jpg", "description": "Exclusive event T-shirts and goodies" }
+      ],
+      "highlights": [
+        "Google Tools Integration: Built using Google's cutting-edge tools and technologies",
+        "Innovation Focus: Explored new ideas while using Google's development ecosystem",
+        "Collaborative Development: Connected with fellow developers in an inspiring environment",
+        "Event T-shirts & Goodies: Received exclusive event merchandise and rewards"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Arena Hackathon 2024",
+      "organization": "Arena Tech Challenge",
+      "position": "Runner-up 🥈",
+      "date": "October 2024",
+      "team_size": 4,
+      "prize_money": "₹12,000",
+      "description": "Arena Tech Challenge hackathon where we built innovative solutions and competed with talented developers from across the region. Focused on creating impactful technology solutions with modern development practices.",
+      "challenge": "Build solutions using modern development practices for real-world problems",
+      "solution": "Developed a comprehensive platform with modern architecture and user-centric design",
+      "learning": "Enhanced skills in modern web development and agile methodologies",
+      "technologies": ["JavaScript", "React", "Node.js", "MongoDB"],
+      "photos": [
+        { "url": "../../public/photo/arena/main.jpg", "description": "Runner-up certificate and achievement" },
+        { "url": "../../public/photo/arena/1.jpg", "description": "Team working on the solution" },
+        { "url": "../../public/photo/arena/2.jpg", "description": "Code development session" },
+        { "url": "../../public/photo/arena/3.jpg", "description": "Final demo presentation" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Code-a-Haunt Halloween Hackathon",
+      "organization": "Code-a-Haunt 2024",
+      "position": "Third Position 🥉",
+      "date": "October 2024",
+      "team_size": 3,
+      "prize_money": "₹8,000",
+      "description": "Spooky themed hackathon where we created Halloween-inspired tech solutions with a creative twist. An incredible journey with amazing teammates showcasing innovation in a fun, themed environment.",
+      "challenge": "Create Halloween-themed technical solutions with innovative approaches",
+      "solution": "Built an interactive Halloween-inspired platform with unique user experiences",
+      "learning": "Learned to balance creativity with technical excellence in themed challenges",
+      "technologies": ["Python", "Flask", "JavaScript", "CSS"],
+      "photos": [
+        { "url": "../../public/photo/code-a-haunt/main.jpg", "description": "Halloween-themed achievement certificate" },
+        { "url": "../../public/photo/code-a-haunt/team.jpg", "description": "Team in Halloween spirit during coding" },
+        { "url": "../../public/photo/code-a-haunt/ui.jpg", "description": "Spooky user interface design" },
+        { "url": "../../public/photo/code-a-haunt/demo.jpg", "description": "Halloween-themed project demonstration" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Code of Duty Gaming Hackathon",
+      "organization": "Gaming Community 2024",
+      "position": "Winner 🏆",
+      "date": "September 2024",
+      "team_size": 4,
+      "prize_money": "₹20,000",
+      "description": "Gaming-focused hackathon where we developed innovative gaming solutions and interactive experiences. Built cutting-edge gaming applications with modern technologies and creative gameplay mechanics.",
+      "challenge": "Develop innovative gaming solutions with modern technology",
+      "solution": "Created cutting-edge gaming application with unique gameplay mechanics",
+      "learning": "Gained expertise in game development and real-time interactive systems",
+      "technologies": ["Unity", "C#", "JavaScript", "WebGL"],
+      "photos": [
+        { "url": "../../public/photo/code-of-duty/main.jpg", "description": "Gaming hackathon winner certificate" },
+        { "url": "../../public/photo/code-of-duty/1.jpg", "description": "Game development in progress" },
+        { "url": "../../public/photo/code-of-duty/2.jpg", "description": "Unity engine workspace" },
+        { "url": "../../public/photo/code-of-duty/3.jpg", "description": "Gameplay testing session" },
+        { "url": "../../public/photo/code-of-duty/4.jpg", "description": "Final game demo presentation" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Code Cubicle by Microsoft",
+      "organization": "Microsoft & Geek Room",
+      "position": "3rd Runners-up 🥉",
+      "date": "August 2024",
+      "team_size": 5,
+      "prize_money": "₹5,000",
+      "description": "Incredible journey to becoming 3rd runners-up at the Code Cubicle by Geek Room at Microsoft! Team 'The Losers' built our entire project in just 7 days! We dove deep into web scraping and mastered Streamlit, winning ₹5000 cash prize.",
+      "challenge": "Build innovative solutions in just 7 days",
+      "solution": "Developed a comprehensive Streamlit application with advanced web scraping capabilities",
+      "learning": "Mastered rapid prototyping and data visualization with Streamlit",
+      "technologies": ["Python", "Streamlit", "Web Scraping", "Data Science"],
+      "photos": [
+        { "url": "../../public/photo/microsoft/main.jpg", "description": "Microsoft campus achievement moment" },
+        { "url": "../../public/photo/microsoft/2.jpg", "description": "Team 'The Losers' at Microsoft" },
+        { "url": "../../public/photo/microsoft/3.jpg", "description": "Streamlit project development" },
+        { "url": "../../public/photo/microsoft/4.jpg", "description": "Web scraping implementation" },
+        { "url": "../../public/photo/microsoft/5.jpg", "description": "Final presentation at Microsoft venue" }
+      ],
+      "highlights": [
+        "Web Scraping Mastery: Advanced web scraping techniques for data collection",
+        "Streamlit Application: Built comprehensive project using Streamlit framework",
+        "7-Day Development: Complete project development in just one week",
+        "Microsoft Venue Experience: Incredible venue and networking opportunities"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Adobe GenSolve Hackathon",
+      "organization": "Adobe & GeeksforGeeks",
+      "position": "Top 5% 🌟",
+      "date": "July 2024",
+      "team_size": 4,
+      "prize_money": "Recognition",
+      "description": "Thrilled to announce that our team placed in the top 5 percentile of the Adobe GenSolve Hackathon! This achievement showcases our technical excellence and innovative problem-solving skills in competitive environment with thousands of participants.",
+      "challenge": "Develop innovative solutions using Adobe technologies",
+      "solution": "Created cutting-edge applications that showcase technical excellence and design thinking",
+      "learning": "Gained expertise in Adobe's creative and development tools ecosystem",
+      "technologies": ["Adobe Creative Suite", "AI/ML", "Design Tech", "JavaScript"],
+      "photos": [
+        { "url": "../../public/photo/microsoft/6.jpg", "description": "Adobe GenSolve top 5% achievement" },
+        { "url": "../../public/photo/microsoft/7.jpg", "description": "Working with Adobe technologies" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Code Fusion Hackathon",
+      "organization": "Chandigarh University",
+      "position": "Winner 🏆",
+      "date": "June 2024",
+      "team_size": 4,
+      "prize_money": "Internship + Prize",
+      "description": "🎉 Thrilled to announce: We Won First Place at Code Fusion Hackathon! We developed an innovative job portal with AI features including resume builder, personalized roadmap builder, and chatbot assistance. Our next-level UI offers seamless experience.",
+      "challenge": "Create innovative solutions with practical applications",
+      "solution": "Developed an AI-powered job portal with unique features and exceptional user experience",
+      "learning": "Mastered AI integration in web applications and advanced UI/UX design",
+      "technologies": ["React", "AI/ML", "Full Stack", "UI/UX"],
+      "photos": [
+        { "url": "../../public/photo/other/main.jpg", "description": "Code Fusion hackathon winner certificate" },
+        { "url": "../../public/photo/other/1.png", "description": "AI-powered job portal interface" },
+        { "url": "../../public/photo/other/2.png", "description": "Resume builder feature demonstration" }
+      ],
+      "highlights": [
+        "First Place Victory: Won top position in Chandigarh University hackathon",
+        "Singapore Internship: Earned exclusive internship opportunity at LWT Academy",
+        "UI/UX Excellence: Recognized for next-level user interface design"
+      ],
+      "features": [
+        "Dual Interface Portal: Separate interfaces for recruiters and job seekers",
+        "AI Resume Builder: Intelligent resume generation and optimization",
+        "Personalized Roadmaps: Custom learning and career path recommendations",
+        "Next-Level UI/UX: Seamless and engaging user experience design"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "Study Buddy - AI Learning Assistant",
+      "category": "AI/ML",
+      "status": "Featured",
+      "members": 4,
+      "description": "An advanced AI-powered learning assistant that helps students master complex topics through personalized guidance, interactive exercises, and intelligent feedback. Study Buddy leverages state-of-the-art AI to revolutionize the learning experience.",
+      "long_description": "Study Buddy is a comprehensive AI-powered educational platform that adapts to individual learning styles, identifies knowledge gaps, and provides customized learning paths to maximize educational outcomes. The platform uses advanced machine learning algorithms to create personalized study plans and provide real-time feedback.",
+      "technologies": ["React.js", "Python", "TensorFlow", "NLP", "OpenAI API", "LangChain", "MongoDB"],
+      "features": [
+        "AI Roadmap Generator: Creates personalized learning paths based on goals",
+        "Smart Code Editor: Interactive coding environment with real-time AI assistance",
+        "AI Proctored Testing: Fair assessment with advanced monitoring",
+        "Profile Dashboard: Track progress and achievements",
+        "1vs1 Comparison: Compare performance with peers",
+        "LinkedIn Analyzer: Get career insights and recommendations"
+      ],
+      "github_url": "https://github.com/SreeCharan1234/study-buddy",
+      "demo_url": "https://study-buddy-demo.vercel.app",
+      "photos": [
+        { "url": "../../public/images/projects/study-buddy/dashboard.jpg", "description": "AI-powered learning dashboard with personalized roadmap" },
+        { "url": "../../public/images/projects/study-buddy/editor.jpg", "description": "Smart code editor with real-time AI assistance" },
+        { "url": "../../public/images/projects/study-buddy/testing.jpg", "description": "AI proctored testing interface" },
+        { "url": "../../public/images/projects/study-buddy/analytics.jpg", "description": "Performance analytics and progress tracking" },
+        { "url": "../../public/images/projects/study-buddy/comparison.jpg", "description": "1vs1 peer comparison feature" },
+        { "url": "../../public/images/projects/study-buddy/linkedin.jpg", "description": "LinkedIn analyzer and career insights" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Health Buddy - AI Healthcare Assistant",
+      "category": "Healthcare",
+      "status": "Featured",
+      "members": 3,
+      "description": "AI-powered healthcare assistant for personalized wellness monitoring and medical advice. Uses machine learning to provide health insights based on user data and symptoms analysis.",
+      "technologies": ["React Native", "TensorFlow", "AWS", "Firebase", "Python", "Computer Vision"],
+      "features": [
+        "Symptom Analysis: AI-powered symptom checker and recommendations",
+        "Health Monitoring: Track vital signs and health metrics",
+        "Medication Reminders: Smart alerts for medicine schedules",
+        "Doctor Consultation: Connect with healthcare professionals",
+        "Health Records: Digital storage of medical history"
+      ],
+      "github_url": "https://github.com/SreeCharan1234/health-buddy",
+      "demo_url": "https://health-buddy-app.vercel.app",
+      "photos": [
+        { "url": "../../public/images/projects/health-buddy/dashboard.jpg", "description": "Health monitoring dashboard" },
+        { "url": "../../public/images/projects/health-buddy/symptoms.jpg", "description": "AI symptom analysis interface" },
+        { "url": "../../public/images/projects/health-buddy/tracking.jpg", "description": "Vital signs tracking screen" },
+        { "url": "../../public/images/projects/health-buddy/consultation.jpg", "description": "Doctor consultation booking" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Agriculture Buddy - Smart Farming Solution",
+      "category": "AgriTech",
+      "status": "Featured",
+      "members": 4,
+      "description": "Smart farming solution with crop monitoring, prediction analytics, and resource management. Helps farmers optimize crop yields and resource usage through IoT and machine learning.",
+      "technologies": ["IoT", "Machine Learning", "React", "Node.js", "Python", "Sensor Integration"],
+      "features": [
+        "Crop Monitoring: Real-time monitoring of crop health",
+        "Weather Prediction: AI-powered weather forecasting",
+        "Resource Management: Optimize water and fertilizer usage",
+        "Yield Prediction: Predict crop yields based on data",
+        "Market Price Analysis: Get real-time market prices"
+      ],
+      "github_url": "https://github.com/SreeCharan1234/agriculture-buddy",
+      "demo_url": "https://agri-buddy-demo.vercel.app",
+      "photos": [
+        { "url": "../../public/images/projects/agriculture/monitoring.jpg", "description": "Crop monitoring dashboard" },
+        { "url": "../../public/images/projects/agriculture/sensors.jpg", "description": "IoT sensors in the field" },
+        { "url": "../../public/images/projects/agriculture/analytics.jpg", "description": "Crop analytics and predictions" },
+        { "url": "../../public/images/projects/agriculture/resources.jpg", "description": "Resource management interface" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Vision AI - Computer Vision Platform",
+      "category": "AI/ML",
+      "status": "Featured",
+      "members": 3,
+      "description": "Advanced computer vision platform for object detection, facial recognition, and scene understanding. Uses state-of-the-art AI models for real-time image and video analysis.",
+      "technologies": ["PyTorch", "OpenCV", "React", "Flask", "Computer Vision", "Deep Learning"],
+      "features": [
+        "Object Detection: Real-time object detection and tracking",
+        "Facial Recognition: Advanced facial recognition system",
+        "Scene Understanding: AI-powered scene analysis",
+        "Video Analytics: Process and analyze video content",
+        "Custom Model Training: Train custom vision models"
+      ],
+      "github_url": "https://github.com/SreeCharan1234/vision-ai",
+      "demo_url": "https://vision-ai-demo.vercel.app",
+      "photos": [
+        { "url": "../../public/images/projects/vision-ai/detection.jpg", "description": "Real-time object detection demo" },
+        { "url": "../../public/images/projects/vision-ai/recognition.jpg", "description": "Facial recognition system" },
+        { "url": "../../public/images/projects/vision-ai/analytics.jpg", "description": "Video analytics dashboard" },
+        { "url": "../../public/images/projects/vision-ai/training.jpg", "description": "Custom model training interface" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Smart Predict - Business Intelligence Tool",
+      "category": "Data Science",
+      "status": "Featured",
+      "members": 5,
+      "description": "Predictive analytics tool for business intelligence and market forecasting. Leverages machine learning algorithms to provide actionable insights from complex data sets.",
+      "technologies": ["Python", "R", "D3.js", "MongoDB", "Machine Learning", "Data Visualization"],
+      "features": [
+        "Predictive Analytics: Advanced forecasting algorithms",
+        "Data Visualization: Interactive charts and graphs",
+        "Business Intelligence: Generate business insights",
+        "Market Analysis: Analyze market trends and patterns",
+        "Custom Reports: Generate custom analytical reports"
+      ],
+      "github_url": "https://github.com/SreeCharan1234/smart-predict",
+      "demo_url": "https://smart-predict-demo.vercel.app",
+      "photos": [
+        { "url": "../../public/images/projects/smart-predict/dashboard.jpg", "description": "Business intelligence dashboard" },
+        { "url": "../../public/images/projects/smart-predict/analytics.jpg", "description": "Predictive analytics interface" },
+        { "url": "../../public/images/projects/smart-predict/visualization.jpg", "description": "Data visualization charts" },
+        { "url": "../../public/images/projects/smart-predict/reports.jpg", "description": "Custom report generation" }
+      ]
+    }
+  ],
+
+  "testimonials": [
+    {
+      "name": "Rajesh Kumar",
+      "position": "Senior Manager at MAQ Software",
+      "photo": "/images/testimonials/rajesh.jpg",
+      "quote": "Sree Charan is an exceptional developer with a keen eye for detail. His ability to deliver high-quality solutions under tight deadlines is remarkable."
+    },
+    {
+      "name": "Priya Sharma",
+      "position": "UI/UX Designer",
+      "photo": "../../public/images/testimonials/priya.jpg",
+      "quote": "Working with Sree has been fantastic. He understands design requirements perfectly and implements them with precision."
+    }
+  ],
+
+  "interests": [
+    {
+      "category": "Technology",
+      "items": ["AI/Machine Learning", "Web Development", "Cloud Computing", "Mobile App Development"]
+    },
+    {
+      "category": "Hobbies",
+      "items": ["Photography", "Gaming", "Reading Tech Blogs", "Open Source Contributing"]
+    },
+    {
+      "category": "Sports",
+      "items": ["Cricket", "Football", "Chess", "Table Tennis"]
+    }
+  ],
+
+  "languages": [
+    { "language": "English", "proficiency": "Fluent" },
+    { "language": "Hindi", "proficiency": "Native" },
+    { "language": "Telugu", "proficiency": "Native" },
+    { "language": "Spanish", "proficiency": "Basic" }
+  ],
+
+  "achievements": [
+    {
+      "title": "Top Performer at MAQ Software",
+      "date": "2024",
+      "description": "Recognized as top performer for exceptional work quality and innovation"
+    },
+    {
+      "title": "7 Hackathon Victories",
+      "date": "2024",
+      "description": "Won multiple hackathons including DevFest Jalandhar and Code Fusion"
+    },
+    {
+      "title": "Published Research Paper",
+      "date": "2023",
+      "description": "Published research on Modern Web Technologies in IEEE conference"
+    }
+  ]
+}
