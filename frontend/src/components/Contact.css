@@ -2,10 +2,11 @@
   background: var(--bg-primary);
   position: relative;
   color: var(--text-primary);
+  padding: 80px 0;
 }
 
 .contact .section-title {
-  color: var(--text-primary) !important;
+  color: #667eea !important;
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
@@ -19,13 +20,13 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--border-color);
+  background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: #5a67d8;
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;

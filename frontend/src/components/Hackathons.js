@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Card, Tag, Button, Spin, Alert, Empty } from 'antd';
-import { TrophyOutlined, CalendarOutlined, TeamOutlined, LoadingOutlined } from '@ant-design/icons';
-import { FiAward, FiUsers, FiCalendar, FiExternalLink, FiEye } from 'react-icons/fi';
+import { Card, Tag, Button } from 'antd';
+import { TrophyOutlined, CalendarOutlined, TeamOutlined } from '@ant-design/icons';
+import { FiExternalLink, FiEye } from 'react-icons/fi';
 import './Hackathons.css';
 
 const Hackathons = () => {
@@ -21,18 +21,9 @@ const Hackathons = () => {
       position: "Participant",
       date: "October 2024",
       description: "Spooky themed hackathon where we created Halloween-inspired tech solutions with a creative twist.",
-      technologies: [
-        { name: "Python" }, { name: "Flask" }, { name: "JavaScript" }, { name: "CSS" }
-      ],
       team_size: 3,
       prize_money: "₹8,000",
-      main_image: "/photo/code-a-haunt/main.jpg",
-      image_url: "/photo/code-a-haunt/main.jpg",
-      highlights: [
-        { title: "Halloween Theme", description: "Created spooky interactive experiences" },
-        { title: "Web Technologies", description: "Used Flask and JavaScript for interactivity" },
-        { title: "Creative Design", description: "Implemented haunting visual effects" }
-      ]
+      image_url: "/photo/code-a-haunt/main.jpg"
     },
     {
       id: 2,
@@ -40,19 +31,9 @@ const Hackathons = () => {
       organization: "Gaming Community 2024",
       position: "Winner",
       date: "September 2024",
-      description: "Gaming-focused hackathon where we developed innovative gaming solutions and interactive experiences.",
-      technologies: [
-        { name: "Unity" }, { name: "C#" }, { name: "JavaScript" }, { name: "WebGL" }
-      ],
       team_size: 4,
       prize_money: "₹20,000",
-      main_image: "/photo/code-of-duty/main.jpg",
-      image_url: "/photo/code-of-duty/main.jpg",
-      highlights: [
-        { title: "Real-time Multiplayer", description: "Created engaging multiplayer experiences" },
-        { title: "Game Design", description: "Developed innovative game mechanics" },
-        { title: "Cross-platform", description: "Works on web and mobile platforms" }
-      ]
+      image_url: "/photo/code-of-duty/main.jpg"
     },
     {
       id: 3,
@@ -60,19 +41,9 @@ const Hackathons = () => {
       organization: "Microsoft & Geek Room",
       position: "3rd Runners-up",
       date: "August 2024",
-      description: "Incredible journey to becoming 3rd runners-up at the Code Cubicle by Geek Room at Microsoft! Team 'The Losers' built our entire project in just 7 days!",
-      technologies: [
-        { name: "Python" }, { name: "Streamlit" }, { name: "Web Scraping" }, { name: "Data Science" }
-      ],
       team_size: 5,
       prize_money: "₹5,000",
-      main_image: "/photo/microsoft/main.jpg",
-      image_url: "/photo/microsoft/main.jpg",
-      highlights: [
-        { title: "Data Analytics", description: "Built intuitive data visualization" },
-        { title: "Microsoft Technologies", description: "Integrated with Microsoft cloud services" },
-        { title: "Rapid Development", description: "Complete project in just 7 days" }
-      ]
+      image_url: "/photo/microsoft/main.jpg"
     },
     {
       id: 4,
@@ -80,39 +51,9 @@ const Hackathons = () => {
       organization: "Lovely Professional University",
       position: "Winner",
       date: "June 2024",
-      description: "Developed an innovative job portal with AI features including resume builder, personalized roadmap builder, and chatbot assistance.",
-      technologies: [
-        { name: "React" }, { name: "AI/ML" }, { name: "Full Stack" }, { name: "UI/UX" }
-      ],
       team_size: 4,
       prize_money: "Internship + Prize",
-      main_image: "/photo/arena/main.jpg",
-      image_url: "/photo/arena/2.jpg",
-      highlights: [
-        { title: "AI-Powered", description: "Smart resume and roadmap builder" },
-        { title: "User Experience", description: "Intuitive and accessible design" },
-        { title: "Career Tools", description: "Comprehensive job search assistance" }
-      ]
-    },
-    {
-      id: 5,
-      title: "DevFest Jalandhar ",
-      organization: "Google Developer Groups",
-      position: "Winner",
-      date: "December 2024",
-      description: "Won DevFest Jalandhar, a tech conference hosted by Google Developer Groups Jalandhar, bringing developers together to learn and innovate. Judges were so impressed that they awarded us monetary rewards and goodies, including exclusive event T-shirts.",
-      technologies: [
-        { name: "React" }, { name: "Node.js" }, { name: "AI/ML" }, { name: "Google Cloud" }
-      ],
-      team_size: 4,
-      prize_money: "₹15,000",
-      main_image: "/photo/devfest/main.jpg",
-      image_url: "/photo/devfest/main.jpg",
-      highlights: [
-        { title: "Google Tools Integration", description: "Built using Google's cutting-edge tools" },
-        { title: "Innovation Focus", description: "Explored new ideas with Google's ecosystem" },
-        { title: "Event T-shirts & Goodies", description: "Received exclusive event merchandise" }
-      ]
+      image_url: "/photo/arena/main.jpg"
     },
     {
       id: 6,
@@ -120,19 +61,9 @@ const Hackathons = () => {
       organization: "Love Babbar",
       position: "Third Position",
       date: "October 2024",
-      description: "Spooky themed hackathon where we created Halloween-inspired tech solutions with a creative twist.",
-      technologies: [
-        { name: "Python" }, { name: "Flask" }, { name: "JavaScript" }, { name: "CSS" }
-      ],
       team_size: 3,
       prize_money: "₹8,000",
-      main_image: "/photo/codingblockslpu/main.jpg",
-      image_url: "/photo/codingblockslpu/main.jpg",
-      highlights: [
-        { title: "Google Tools Integration", description: "Built using Google's cutting-edge tools" },
-        { title: "Innovation Focus", description: "Explored new ideas with Google's ecosystem" },
-        { title: "Event T-shirts & Goodies", description: "Received exclusive event merchandise" }
-      ]
+      image_url: "/photo/codingblockslpu/main.jpg"
     },
     {
       id: 9,
@@ -140,69 +71,18 @@ const Hackathons = () => {
       organization: "Chandigarh University",
       position: "Winner",
       date: "June 2024",
-      description: "Developed an innovative job portal with AI features including resume builder, personalized roadmap builder, and chatbot assistance.",
-      technologies: [
-        { name: "React" }, { name: "AI/ML" }, { name: "Full Stack" }, { name: "UI/UX" }
-      ],
       team_size: 4,
       prize_money: "Internship + Prize",
-      main_image: "/photo/other/main.jpg",
-      image_url: "/photo/other/3.jpg",
-    },
-    
+      image_url: "/photo/other/main.jpg"
+    }
   ];
-  
-  // Static data doesn't need loading state
-  const loading = false;
-  const error = null;
-
-  // This section won't execute since loading is always false
-  if (loading) {
-    return (
-      <section className="hackathons-section">
-        <div className="container">
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center', 
-            minHeight: '300px' 
-          }}>
-            <Spin 
-              size="large" 
-              indicator={<LoadingOutlined style={{ fontSize: 48, color: 'var(--accent-color)' }} spin />}
-            />
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error && hackathons.length === 0) {
-    return (
-      <section className="hackathons-section">
-        <div className="container">
-          <Alert
-            message="Unable to Load Hackathons"
-            description={error}
-            type="warning"
-            showIcon
-            style={{ margin: '2rem 0' }}
-          />
-          <Empty 
-            description="No hackathons available"
-            style={{ margin: '2rem 0' }}
-          />
-        </div>
-      </section>
-    );
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     }
   };

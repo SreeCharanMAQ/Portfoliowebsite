@@ -3,7 +3,7 @@
   "title": "Passionate Full Stack Developer & AI Enthusiast",
   "summary": "Dedicated software engineer with strong foundation in both frontend and backend development. Passionate about turning innovative ideas into reality through efficient, scalable code and cutting-edge AI solutions.",
   "quote": "Code is like humor. When you have to explain it, it's bad. - Cory House",
-  "bio": "I'm a passionate full-stack developer who loves creating innovative solutions that make a real impact. With expertise in React, Python, and AI/ML, I've won multiple hackathons and built projects that solve real-world problems. I believe in continuous learning and pushing the boundaries of what's possible with technology.",
+  "bio": "I'm a passionate full-stack developer who loves creating innovative solutions that make a real impact. With expertise in React, Python, and AI/ML, I've won multiple hackathons and built applications that solve real-world problems. I believe in continuous learning and pushing the boundaries of what's possible with technology.",
   
   "contact": {
     "email": "sreecharan9484@gmail.com",
@@ -432,133 +432,6 @@
         "AI Resume Builder: Intelligent resume generation and optimization",
         "Personalized Roadmaps: Custom learning and career path recommendations",
         "Next-Level UI/UX: Seamless and engaging user experience design"
-      ]
-    }
-  ],
-
-  "projects": [
-    {
-      "id": 1,
-      "title": "Study Buddy - AI Learning Assistant",
-      "category": "AI/ML",
-      "status": "Featured",
-      "members": 4,
-      "description": "An advanced AI-powered learning assistant that helps students master complex topics through personalized guidance, interactive exercises, and intelligent feedback. Study Buddy leverages state-of-the-art AI to revolutionize the learning experience.",
-      "long_description": "Study Buddy is a comprehensive AI-powered educational platform that adapts to individual learning styles, identifies knowledge gaps, and provides customized learning paths to maximize educational outcomes. The platform uses advanced machine learning algorithms to create personalized study plans and provide real-time feedback.",
-      "technologies": ["React.js", "Python", "TensorFlow", "NLP", "OpenAI API", "LangChain", "MongoDB"],
-      "features": [
-        "AI Roadmap Generator: Creates personalized learning paths based on goals",
-        "Smart Code Editor: Interactive coding environment with real-time AI assistance",
-        "AI Proctored Testing: Fair assessment with advanced monitoring",
-        "Profile Dashboard: Track progress and achievements",
-        "1vs1 Comparison: Compare performance with peers",
-        "LinkedIn Analyzer: Get career insights and recommendations"
-      ],
-      "github_url": "https://github.com/SreeCharan1234/study-buddy",
-      "demo_url": "https://study-buddy-demo.vercel.app",
-      "photos": [
-        { "url": "../../public/images/projects/study-buddy/dashboard.jpg", "description": "AI-powered learning dashboard with personalized roadmap" },
-        { "url": "../../public/images/projects/study-buddy/editor.jpg", "description": "Smart code editor with real-time AI assistance" },
-        { "url": "../../public/images/projects/study-buddy/testing.jpg", "description": "AI proctored testing interface" },
-        { "url": "../../public/images/projects/study-buddy/analytics.jpg", "description": "Performance analytics and progress tracking" },
-        { "url": "../../public/images/projects/study-buddy/comparison.jpg", "description": "1vs1 peer comparison feature" },
-        { "url": "../../public/images/projects/study-buddy/linkedin.jpg", "description": "LinkedIn analyzer and career insights" }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Health Buddy - AI Healthcare Assistant",
-      "category": "Healthcare",
-      "status": "Featured",
-      "members": 3,
-      "description": "AI-powered healthcare assistant for personalized wellness monitoring and medical advice. Uses machine learning to provide health insights based on user data and symptoms analysis.",
-      "technologies": ["React Native", "TensorFlow", "AWS", "Firebase", "Python", "Computer Vision"],
-      "features": [
-        "Symptom Analysis: AI-powered symptom checker and recommendations",
-        "Health Monitoring: Track vital signs and health metrics",
-        "Medication Reminders: Smart alerts for medicine schedules",
-        "Doctor Consultation: Connect with healthcare professionals",
-        "Health Records: Digital storage of medical history"
-      ],
-      "github_url": "https://github.com/SreeCharan1234/health-buddy",
-      "demo_url": "https://health-buddy-app.vercel.app",
-      "photos": [
-        { "url": "../../public/images/projects/health-buddy/dashboard.jpg", "description": "Health monitoring dashboard" },
-        { "url": "../../public/images/projects/health-buddy/symptoms.jpg", "description": "AI symptom analysis interface" },
-        { "url": "../../public/images/projects/health-buddy/tracking.jpg", "description": "Vital signs tracking screen" },
-        { "url": "../../public/images/projects/health-buddy/consultation.jpg", "description": "Doctor consultation booking" }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Agriculture Buddy - Smart Farming Solution",
-      "category": "AgriTech",
-      "status": "Featured",
-      "members": 4,
-      "description": "Smart farming solution with crop monitoring, prediction analytics, and resource management. Helps farmers optimize crop yields and resource usage through IoT and machine learning.",
-      "technologies": ["IoT", "Machine Learning", "React", "Node.js", "Python", "Sensor Integration"],
-      "features": [
-        "Crop Monitoring: Real-time monitoring of crop health",
-        "Weather Prediction: AI-powered weather forecasting",
-        "Resource Management: Optimize water and fertilizer usage",
-        "Yield Prediction: Predict crop yields based on data",
-        "Market Price Analysis: Get real-time market prices"
-      ],
-      "github_url": "https://github.com/SreeCharan1234/agriculture-buddy",
-      "demo_url": "https://agri-buddy-demo.vercel.app",
-      "photos": [
-        { "url": "../../public/images/projects/agriculture/monitoring.jpg", "description": "Crop monitoring dashboard" },
-        { "url": "../../public/images/projects/agriculture/sensors.jpg", "description": "IoT sensors in the field" },
-        { "url": "../../public/images/projects/agriculture/analytics.jpg", "description": "Crop analytics and predictions" },
-        { "url": "../../public/images/projects/agriculture/resources.jpg", "description": "Resource management interface" }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Vision AI - Computer Vision Platform",
-      "category": "AI/ML",
-      "status": "Featured",
-      "members": 3,
-      "description": "Advanced computer vision platform for object detection, facial recognition, and scene understanding. Uses state-of-the-art AI models for real-time image and video analysis.",
-      "technologies": ["PyTorch", "OpenCV", "React", "Flask", "Computer Vision", "Deep Learning"],
-      "features": [
-        "Object Detection: Real-time object detection and tracking",
-        "Facial Recognition: Advanced facial recognition system",
-        "Scene Understanding: AI-powered scene analysis",
-        "Video Analytics: Process and analyze video content",
-        "Custom Model Training: Train custom vision models"
-      ],
-      "github_url": "https://github.com/SreeCharan1234/vision-ai",
-      "demo_url": "https://vision-ai-demo.vercel.app",
-      "photos": [
-        { "url": "../../public/images/projects/vision-ai/detection.jpg", "description": "Real-time object detection demo" },
-        { "url": "../../public/images/projects/vision-ai/recognition.jpg", "description": "Facial recognition system" },
-        { "url": "../../public/images/projects/vision-ai/analytics.jpg", "description": "Video analytics dashboard" },
-        { "url": "../../public/images/projects/vision-ai/training.jpg", "description": "Custom model training interface" }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Smart Predict - Business Intelligence Tool",
-      "category": "Data Science",
-      "status": "Featured",
-      "members": 5,
-      "description": "Predictive analytics tool for business intelligence and market forecasting. Leverages machine learning algorithms to provide actionable insights from complex data sets.",
-      "technologies": ["Python", "R", "D3.js", "MongoDB", "Machine Learning", "Data Visualization"],
-      "features": [
-        "Predictive Analytics: Advanced forecasting algorithms",
-        "Data Visualization: Interactive charts and graphs",
-        "Business Intelligence: Generate business insights",
-        "Market Analysis: Analyze market trends and patterns",
-        "Custom Reports: Generate custom analytical reports"
-      ],
-      "github_url": "https://github.com/SreeCharan1234/smart-predict",
-      "demo_url": "https://smart-predict-demo.vercel.app",
-      "photos": [
-        { "url": "../../public/images/projects/smart-predict/dashboard.jpg", "description": "Business intelligence dashboard" },
-        { "url": "../../public/images/projects/smart-predict/analytics.jpg", "description": "Predictive analytics interface" },
-        { "url": "../../public/images/projects/smart-predict/visualization.jpg", "description": "Data visualization charts" },
-        { "url": "../../public/images/projects/smart-predict/reports.jpg", "description": "Custom report generation" }
       ]
     }
   ],

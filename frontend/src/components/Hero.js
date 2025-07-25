@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Button, Typography, Space, Tag, Tooltip } from 'antd';
+import { Button, Space, Tag, Tooltip } from 'antd';
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiStar, FiCode, FiHeart } from 'react-icons/fi';
 import { DownloadOutlined, HeartOutlined, StarOutlined } from '@ant-design/icons';
 import Typed from 'typed.js';
 import LottieAnimation from './LottieAnimation';
+import profileImage from '../profile.png';
 import './Hero.css';
 
-
-const { Title, Paragraph } = Typography;
 
 const Hero = ({ triggerConfetti }) => {
   const canvasRef = useRef(null);
@@ -45,62 +44,153 @@ const Hero = ({ triggerConfetti }) => {
     };
 
     const particles = [];
-    const particleCount = 100;
+    const particleCount = 60;
+    const orbs = [];
+    const orbCount = 8;
 
     class Particle {
       constructor() {
-        this.x = Math.random() * canvas.width;
+        // Start particles from left and right sides
+        const fromLeft = Math.random() < 0.5;
+        if (fromLeft) {
+          this.x = -10; // Start from left side
+          this.vx = Math.random() * 1.5 + 0.5; // Move right
+        } else {
+          this.x = canvas.width + 10; // Start from right side
+          this.vx = -(Math.random() * 1.5 + 0.5); // Move left
+        }
+        
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.radius = Math.random() * 1.5 + 0.5;
+        this.opacity = Math.random() * 0.6 + 0.2;
+        this.hue = Math.random() * 60 + 240; // Purple to blue range
+        this.life = 1.0; // Particle life
+        this.decay = Math.random() * 0.002 + 0.001; // How fast it fades
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        
+        // Reduce life over time
+        this.life -= this.decay;
+        
+        // Reset particle if it goes off screen or dies
+        if (this.x < -50 || this.x > canvas.width + 50 || this.life <= 0) {
+          // Respawn from sides
+          const fromLeft = Math.random() < 0.5;
+          if (fromLeft) {
+            this.x = -10;
+            this.vx = Math.random() * 1.5 + 0.5;
+          } else {
+            this.x = canvas.width + 10;
+            this.vx = -(Math.random() * 1.5 + 0.5);
+          }
+          this.y = Math.random() * canvas.height;
+          this.life = 1.0;
+        }
+        
+        // Bounce off top and bottom
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
       }
 
       draw() {
+        const finalOpacity = this.opacity * this.life;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 255, 136, ${this.opacity})`;
+        ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${finalOpacity})`;
+        ctx.fill();
+      }
+    }
+
+    class Orb {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 100 + 50;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.hue = Math.random() * 60 + 240;
+        this.opacity = 0.1;
+        this.pulseSpeed = Math.random() * 0.02 + 0.01;
+        this.pulseOffset = Math.random() * Math.PI * 2;
+      }
+
+      update(time) {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < -this.radius || this.x > canvas.width + this.radius) this.vx *= -1;
+        if (this.y < -this.radius || this.y > canvas.height + this.radius) this.vy *= -1;
+
+        // Pulsing effect with safe bounds
+        const timeValue = time || 0;
+        const pulseValue = Math.sin(timeValue * this.pulseSpeed + this.pulseOffset);
+        this.opacity = Math.max(0.02, Math.min(0.15, 0.05 + pulseValue * 0.05));
+      }
+
+      draw() {
+        // Ensure opacity is a valid number
+        const safeOpacity = isNaN(this.opacity) ? 0.05 : Math.max(0.02, Math.min(0.15, this.opacity));
+        
+        const gradient = ctx.createRadialGradient(
+          this.x, this.y, 0,
+          this.x, this.y, this.radius
+        );
+        gradient.addColorStop(0, `hsla(${this.hue}, 70%, 60%, ${safeOpacity})`);
+        gradient.addColorStop(1, `hsla(${this.hue}, 70%, 60%, 0)`);
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
         ctx.fill();
       }
     }
 
     const init = () => {
       resizeCanvas();
+      particles.length = 0;
+      orbs.length = 0;
+      
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }
+      
+      for (let i = 0; i < orbCount; i++) {
+        orbs.push(new Orb());
+      }
     };
 
-    const animate = () => {
+    const animate = (time) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      // Draw floating orbs
+      orbs.forEach(orb => {
+        orb.update(time * 0.001);
+        orb.draw();
+      });
+      
+      // Draw particles
       particles.forEach(particle => {
         particle.update();
         particle.draw();
       });
 
-      // Draw connections
+      // Draw connections between particles
       particles.forEach((particle, index) => {
         for (let i = index + 1; i < particles.length; i++) {
           const dx = particle.x - particles[i].x;
           const dy = particle.y - particles[i].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < 120) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(particles[i].x, particles[i].y);
-            ctx.strokeStyle = `rgba(0, 0, 0, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 1;
+            const opacity = 0.15 * (1 - distance / 120);
+            ctx.strokeStyle = `hsla(${(particle.hue + particles[i].hue) / 2}, 70%, 60%, ${opacity})`;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
@@ -395,10 +485,10 @@ const Hero = ({ triggerConfetti }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="image-container animate-morphing hover-lift">
+          {/* <div className="image-container animate-morphing">
             <div className="image-placeholder glass-effect">
               <img 
-                src="/profile.jpg"
+                src={profileImage}
                 alt="K Sree Charan"
                 className="profile-photo professional-photo"
                 loading="eager"
@@ -406,7 +496,7 @@ const Hero = ({ triggerConfetti }) => {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '50%',
+                  borderRadius: '15px',
                   display: 'block',
                   position: 'relative',
                   zIndex: 5
@@ -414,36 +504,98 @@ const Hero = ({ triggerConfetti }) => {
                 onError={(e) => {
                   console.error('Image failed to load:', e);
                   console.error('Image src:', e.target.src);
-                  e.target.style.border = '3px solid red';
-                  e.target.alt = 'Image failed to load';
+                  // Create a fallback with initials
+                  e.target.style.display = 'none';
+                  const fallback = document.createElement('div');
+                  fallback.style.cssText = `
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1890ff, #722ed1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 4rem;
+                    font-weight: bold;
+                    color: white;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                  `;
+                  fallback.textContent = 'KSC';
+                  e.target.parentElement.appendChild(fallback);
                 }}
                 onLoad={(e) => {
                   console.log('Image loaded successfully!');
                   console.log('Image src:', e.target.src);
                   console.log('Image dimensions:', e.target.naturalWidth, 'x', e.target.naturalHeight);
+                  e.target.style.display = 'block';
                 }}
               />
-              <span style={{ 
-                position: 'absolute', 
-                bottom: '15px', 
-                left: '50%',
-                transform: 'translateX(-50%)',
-                fontSize: '0.85rem',
-                fontWeight: '600',
-                color: 'var(--text-primary)',
-                background: 'rgba(0, 0, 0, 0.7)',
-                padding: '6px 12px',
-                borderRadius: '20px',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                whiteSpace: 'nowrap',
-                zIndex: 10
-              }}>
-                K Sree Charan
-              </span>
+          
             </div>
-            <div className="image-glow"></div>
-          </div>
+            
+          </div> */}
+
+          <div
+  className="image-placeholder glass-effect"
+  style={{
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    borderRadius: '15px',
+    overflow: 'hidden',
+  }}
+>
+  <img
+    src={profileImage}
+    alt="K Sree Charan"
+    className="profile-photo professional-photo"
+    loading="eager"
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: '15px',
+      display: 'block',
+      position: 'relative',
+      zIndex: 5,
+    }}
+    onError={(e) => {
+      console.error('Image failed to load:', e);
+      console.error('Image src:', e.target.src);
+      e.target.style.display = 'none';
+
+      const fallback = document.createElement('div');
+      fallback.style.cssText = `
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1890ff, #722ed1);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+      `;
+      fallback.textContent = 'KSC';
+      e.target.parentElement.appendChild(fallback);
+    }}
+    onLoad={(e) => {
+      console.log('Image loaded successfully!');
+      console.log('Image src:', e.target.src);
+      console.log('Image dimensions:', e.target.naturalWidth, 'x', e.target.naturalHeight);
+      e.target.style.display = 'block';
+    }}
+  />
+</div>
+
         </motion.div>
       </div>
 

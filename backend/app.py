@@ -172,33 +172,6 @@ def search_portfolio_data(query: str, data: Dict[str, Any]) -> tuple[str, List[s
         
         relevant_sections.append('hackathons')
     
-    # Projects
-    project_keywords = ['project', 'study-buddy', 'health-buddy', 'agrivision', 'agriculture', 'sarthi']
-    if any(word in query_lower for word in project_keywords):
-        folder_mappings = {
-            'study-buddy': 'study-buddy',
-            'health-buddy': 'health-buddy', 
-            'agrivision': 'agrivision',
-            'agriculture': 'agrivision',
-            'sarthi': 'sarthi',
-            'surasksha': 'surasksha-suchak'
-        }
-        
-        for project in data.get('projects', []):
-            title = project.get('title', '')
-            context_parts.append(f"Project: {title}")
-            context_parts.append(f"Category: {project.get('category', '')}, Description: {project.get('description', '')}")
-            
-            # Check for images
-            title_lower = title.lower()
-            for keyword, folder in folder_mappings.items():
-                if keyword in query_lower or keyword in title_lower:
-                    folder_images = get_image_paths('projectfolder', folder)
-                    images.extend(folder_images)
-                    break
-        
-        relevant_sections.append('projects')
-    
     # Remove duplicates from images
     unique_images = list(dict.fromkeys(images))
     
@@ -222,7 +195,7 @@ def generate_response_with_gemini(context: str, question: str) -> str:
         
         Guidelines:
         1. Provide detailed, accurate information based on the context
-        2. If asked about hackathons, projects, or specific achievements, mention relevant details
+        2. If asked about hackathons or specific achievements, mention relevant details
         3. Be conversational and professional
         4. If images are available for the topic, mention that visual content is provided
         5. If the question is outside the context, politely redirect to portfolio-related topics
@@ -251,14 +224,12 @@ async def startup_event():
         portfolio_data = {
             "name": "K Sree Charan",
             "title": "Full Stack Developer", 
-            "hackathons": [],
-            "projects": []
+            "hackathons": []
         }
 
 # Mount static files
 try:
     app.mount("/photo", StaticFiles(directory="./photo"), name="photo")
-    app.mount("/projectfolder", StaticFiles(directory="./projectfolder"), name="projectfolder") 
     app.mount("/static", StaticFiles(directory="./static"), name="static")
 except RuntimeError as e:
     logger.warning(f"Could not mount static directories: {e}")
@@ -266,7 +237,6 @@ except RuntimeError as e:
     import tempfile
     temp_dir = tempfile.mkdtemp()
     app.mount("/photo", StaticFiles(directory=temp_dir), name="photo")
-    app.mount("/projectfolder", StaticFiles(directory=temp_dir), name="projectfolder")
     app.mount("/static", StaticFiles(directory=temp_dir), name="static")
 
 @app.post("/chat", response_model=ChatResponse)
@@ -284,7 +254,7 @@ async def chat(request: ChatRequest):
         context, images, relevant_sections = search_portfolio_data(query, portfolio_data)
         
         if not context:
-            context = "I can help you with information about K Sree Charan's skills, experience, education, hackathons, and projects."
+            context = "I can help you with information about K Sree Charan's skills, experience, education, and hackathons."
         
         # Generate response using Gemini
         answer = generate_response_with_gemini(context, query)

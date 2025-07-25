@@ -7,35 +7,35 @@
 }
 
 :root {
-  /* Light Theme Colors (Default) */
+  /* Light Theme Colors (White Background + Blue Text) */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-tertiary: #e9ecef;
-  --text-primary: #000000;
-  --text-secondary: #6c757d;
-  --text-accent: #212529;
-  --accent-color: #1890ff;
-  --accent-hover: #40a9ff;
-  --border-color: #dee2e6;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --text-primary: #5a67d8;
+  --text-secondary: #667eea;
+  --text-accent: #764ba2;
+  --accent-color: #667eea;
+  --accent-hover: #5a67d8;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(102, 126, 234, 0.15);
   --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  --gradient-accent: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   
   /* Card and Surface Colors */
   --card-bg: #ffffff;
-  --card-border: #e0e0e0;
-  --card-shadow: rgba(0, 0, 0, 0.08);
+  --card-border: #e2e8f0;
+  --card-shadow: rgba(102, 126, 234, 0.1);
   
   /* Form Colors */
   --input-bg: #ffffff;
-  --input-border: #d9d9d9;
-  --input-focus: #1890ff;
+  --input-border: #e2e8f0;
+  --input-focus: #667eea;
   
   /* Button Colors */
-  --btn-primary-bg: #1890ff;
+  --btn-primary-bg: #667eea;
   --btn-primary-text: #ffffff;
   --btn-secondary-bg: #f0f0f0;
-  --btn-secondary-text: #000000;
+  --btn-secondary-text: #5a67d8;
 }
 
 [data-theme="dark"], .App.dark, html[data-theme="dark"], body[data-theme="dark"] {
@@ -344,7 +344,7 @@ body {
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  background: var(--gradient-accent);
+  background: linear-gradient(45deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

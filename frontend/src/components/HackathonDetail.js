@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
+import Navbar from './Navbar';
 import { Button, Typography, Tag, Card, Row, Col, Timeline, Statistic, Alert, Spin } from 'antd';
 import { 
   ArrowLeftOutlined, 
@@ -22,6 +24,7 @@ const { Title, Paragraph, Text } = Typography;
 const HackathonDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { theme } = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -360,7 +363,9 @@ const HackathonDetail = () => {
   };
 
   return (
-    <div className="hackathon-detail-container">
+    <>
+      <Navbar />
+      <div className="hackathon-detail-container">
       <div className="container">
         {/* Header with Back Button */}
         <motion.div 
@@ -702,6 +707,7 @@ const HackathonDetail = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

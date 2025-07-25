@@ -25,36 +25,36 @@ const Skills = () => {
     frontend: {
       title: 'Frontend Development',
       skills: [
-        { name: 'React', icon: <FaReact />, level: 90, color: '#61DAFB' },
-        { name: 'JavaScript', icon: <FaJsSquare />, level: 88, color: '#F7DF1E' },
-        { name: 'TypeScript', icon: <SiTypescript />, level: 85, color: '#3178C6' },
-        { name: 'HTML5', icon: <FaHtml5 />, level: 95, color: '#E34F26' },
-        { name: 'CSS3', icon: <FaCss3Alt />, level: 90, color: '#1572B6' },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 88, color: '#06B6D4' },
-        { name: 'Redux', icon: <SiRedux />, level: 82, color: '#764ABC' }
+        { name: 'React', icon: <FaReact />, color: '#61DAFB' },
+        { name: 'JavaScript', icon: <FaJsSquare />, color: '#F7DF1E' },
+        { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
+        { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26' },
+        { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6' },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
+        { name: 'Redux', icon: <SiRedux />, color: '#764ABC' }
       ]
     },
     backend: {
       title: 'Backend Development',
       skills: [
-        { name: 'Python', icon: <FaPython />, level: 90, color: '#3776AB' },
-        { name: 'Node.js', icon: <FaNodeJs />, level: 85, color: '#339933' },
-        { name: 'Express.js', icon: <SiExpress />, level: 88, color: '#000000' },
-        { name: 'Flask', icon: <SiFlask />, level: 86, color: '#000000' },
-        { name: 'GraphQL', icon: <SiGraphql />, level: 75, color: '#E10098' },
-        { name: 'MongoDB', icon: <SiMongodb />, level: 85, color: '#47A248' },
-        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 82, color: '#336791' }
+        { name: 'Python', icon: <FaPython />, color: '#3776AB' },
+        { name: 'Node.js', icon: <FaNodeJs />, color: '#339933' },
+        { name: 'Express.js', icon: <SiExpress />, color: '#000000' },
+        { name: 'Flask', icon: <SiFlask />, color: '#000000' },
+        { name: 'GraphQL', icon: <SiGraphql />, color: '#E10098' },
+        { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
+        { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' }
       ]
     },
     tools: {
       title: 'Tools & Technologies',
       skills: [
-        { name: 'Git', icon: <FaGitAlt />, level: 90, color: '#F05032' },
-        { name: 'Docker', icon: <FaDocker />, level: 78, color: '#2496ED' },
-        { name: 'AWS', icon: <FaAws />, level: 75, color: '#FF9900' },
-        { name: 'Firebase', icon: <SiFirebase />, level: 80, color: '#FFCA28' },
-        { name: 'Jest', icon: <SiJest />, level: 82, color: '#C21325' },
-        { name: 'Database Design', icon: <FaDatabase />, level: 85, color: '#336791' }
+        { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
+        { name: 'Docker', icon: <FaDocker />, color: '#2496ED' },
+        { name: 'AWS', icon: <FaAws />, color: '#FF9900' },
+        { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
+        { name: 'Jest', icon: <SiJest />, color: '#C21325' },
+        { name: 'Database Design', icon: <FaDatabase />, color: '#336791' }
       ]
     }
   };
@@ -111,19 +111,6 @@ const Skills = () => {
                 </div>
                 
                 <h3 className="skill-name">{skill.name}</h3>
-                
-                <div className="skill-progress">
-                  <div className="progress-bar">
-                    <motion.div
-                      className="progress-fill"
-                      style={{ backgroundColor: skill.color }}
-                      initial={{ width: 0 }}
-                      animate={inView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1.5, delay: 0.8 + index * 0.1 }}
-                    />
-                  </div>
-                  <span className="skill-level">{skill.level}%</span>
-                </div>
               </motion.div>
             ))}
           </div>

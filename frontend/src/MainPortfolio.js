@@ -9,11 +9,10 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
-import ProjectsSimple from './components/ProjectsSimple';
+import Projects from './components/Projects';
 import Hackathons from './components/Hackathons';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
-import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import Chatbot from './components/Chatbot';
 import VoiceNavigation from './components/VoiceNavigation';
@@ -132,12 +131,12 @@ function App() {
               <Skills />
               <Experience triggerConfetti={triggerCelebrationConfetti} />
               <Education />
-              <ProjectsSimple triggerConfetti={triggerCelebrationConfetti} />
+              <Projects triggerConfetti={triggerCelebrationConfetti} />
               <Hackathons triggerConfetti={triggerCelebrationConfetti} />
               <Contact triggerConfetti={triggerCelebrationConfetti} />
             </motion.main>
             
-            <ScrollToTop />
+            
             <Chatbot />
             <VoiceNavigation />
           </>

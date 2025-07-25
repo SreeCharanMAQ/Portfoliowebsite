@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import profile2Image from '../profile2.png';
 import './About.css';
 
 const About = () => {
@@ -73,7 +74,40 @@ const About = () => {
           >
             <div className="image-frame glass-effect hover-lift">
               <div className="about-photo animate-morphing">
-                <span>Professional Photo</span>
+                <img 
+                  src={profile2Image}
+                  alt="K Sree Charan - About"
+                  className="profile-about-photo"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '15px',
+                    display: 'block'
+                  }}
+                  onError={(e) => {
+                    console.error('About image failed to load:', e);
+                    e.target.style.display = 'none';
+                    const fallback = document.createElement('div');
+                    fallback.style.cssText = `
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1890ff, #722ed1);
+                      border-radius: 15px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 2rem;
+                      font-weight: bold;
+                      color: white;
+                    `;
+                    fallback.textContent = 'About Me';
+                    e.target.parentElement.appendChild(fallback);
+                  }}
+                  onLoad={(e) => {
+                    console.log('About image loaded successfully!');
+                  }}
+                />
               </div>
               <div className="frame-decoration"></div>
             </div>

@@ -1,6 +1,7 @@
 .education {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   position: relative;
+  padding: 80px 0;
 }
 
 .education::before {
@@ -10,7 +11,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--gradient-accent);
+  background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .education-content {
@@ -26,12 +27,12 @@
   gap: 1rem;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #667eea;
   margin-bottom: 2rem;
 }
 
 .subsection-icon {
-  color: var(--accent-color);
+  color: #5a67d8;
   font-size: 2.5rem;
 }
 
@@ -42,17 +43,17 @@
 }
 
 .education-item {
-  background: var(--bg-primary);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--card-border);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .education-item:hover {
-  box-shadow: 0 20px 40px var(--shadow-color);
-  border-color: var(--accent-color);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
 }
 
 .education-header {
@@ -71,13 +72,13 @@
 .degree {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #5a67d8;
   margin-bottom: 0.5rem;
 }
 
 .field {
   font-size: 1.1rem;
-  color: var(--accent-color);
+  color: #667eea;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -91,14 +92,14 @@
 .institution {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #5a67d8;
 }
 
 .location {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: #667eea;
   font-size: 0.9rem;
 }
 
@@ -113,12 +114,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: #667eea;
   font-size: 0.9rem;
 }
 
 .gpa {
-  background: var(--accent-color);
+  background: #667eea;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -127,13 +128,13 @@
 }
 
 .education-description {
-  color: var(--text-secondary);
+  color: #667eea;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .achievements h5 {
-  color: var(--text-primary);
+  color: #5a67d8;
   font-weight: 600;
   margin-bottom: 0.8rem;
   font-size: 1rem;
@@ -149,7 +150,7 @@
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.5rem;
-  color: var(--text-secondary);
+  color: #667eea;
   line-height: 1.5;
 }
 
@@ -172,35 +173,35 @@
 }
 
 .certification-item {
-  background: var(--bg-primary);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--card-border);
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .certification-item:hover {
-  box-shadow: 0 15px 30px var(--shadow-color);
-  border-color: var(--accent-color);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
 }
 
 .cert-icon {
   font-size: 2.5rem;
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1rem;
 }
 
 .cert-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #5a67d8;
   margin-bottom: 0.5rem;
 }
 
 .cert-issuer {
-  color: var(--accent-color);
+  color: #667eea;
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -210,11 +211,11 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #667eea;
 }
 
 .cert-date {
-  background: var(--bg-secondary);
+  background: #f7fafc;
   padding: 0.3rem 0.8rem;
   border-radius: 10px;
 }
@@ -232,24 +233,24 @@
 }
 
 .stat-item {
-  background: var(--bg-primary);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--card-border);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px var(--shadow-color);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.15);
 }
 
 .stat-number {
   display: block;
   font-size: 2.5rem;
   font-weight: 800;
-  background: var(--gradient-accent);
+  background: linear-gradient(45deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -257,7 +258,7 @@
 }
 
 .stat-label {
-  color: var(--text-secondary);
+  color: #667eea;
   font-weight: 500;
   font-size: 0.9rem;
 }

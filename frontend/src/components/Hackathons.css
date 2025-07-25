@@ -74,8 +74,8 @@
 
 .hackathon-card-content:hover {
   transform: translateY(-5px);
-  box-shadow: 0 25px 50px var(--card-shadow);
-  border-color: var(--accent-color);
+  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
 }
 
 .hackathon-image {

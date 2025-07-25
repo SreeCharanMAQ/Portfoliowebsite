@@ -1,5 +1,26 @@
 /* HackathonDetail.css - Improved and Modern Design */
 
+/* CSS Variables for Light Mode */
+:root {
+  --text-primary: #333;
+  --text-secondary: #666;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --accent-color: #667eea;
+  --accent-secondary: #764ba2;
+}
+
+/* CSS Variables for Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e0;
+  --card-bg: rgba(45, 55, 72, 0.95);
+  --card-border: rgba(102, 126, 234, 0.3);
+  --accent-color: #90cdf4;
+  --accent-secondary: #667eea;
+}
+
 .hackathon-detail-container {
   background: var(--bg-primary);
   color: var(--text-primary);

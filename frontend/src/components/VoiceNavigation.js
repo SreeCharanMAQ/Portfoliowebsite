@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMic, FiMicOff, FiVolume2, FiVolumeX } from 'react-icons/fi';
+import { FiMic, FiMicOff, FiVolume2, FiVolumeX, FiX } from 'react-icons/fi';
 import './VoiceNavigation.css';
 
 // Navigation mapping - moved outside component to avoid dependency issues
@@ -100,13 +100,17 @@ const VoiceNavigation = () => {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         showFeedbackMessage('Scrolled to bottom', 'success');
         speak('Scrolled to bottom');
+      } else if (command.includes('stop') || command.includes('close') || command.includes('exit')) {
+        stopListening();
+        showFeedbackMessage('Voice navigation stopped', 'info');
+        speak('Voice navigation stopped');
       } else {
-        showFeedbackMessage(`Command "${command}" not recognized. Try saying: "Go to about", "Show projects", "Contact section"`, 'warning');
-        speak('Command not recognized. Try saying go to about, show projects, or contact section');
+        showFeedbackMessage(`Command "${command}" not recognized. Try saying: "Go to about", "Show projects", "Contact section", or "Stop" to exit`, 'warning');
+        speak('Command not recognized. Try saying go to about, show projects, contact section, or stop to exit');
       }
     }
 
-    stopListening();
+    // Don't automatically stop listening - let user control when to stop
   }, [navigateToSection, showFeedbackMessage, speak, stopListening]);
 
   useEffect(() => {
@@ -223,6 +227,21 @@ const VoiceNavigation = () => {
         {isListening ? <FiMicOff /> : <FiMic />}
       </motion.button>
 
+      {isListening && (
+        <motion.button
+          className="voice-close-button"
+          onClick={stopListening}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          title="Stop voice navigation"
+        >
+          <FiX />
+        </motion.button>
+      )}
+
       <motion.button
         className="voice-feedback-toggle"
         onClick={toggleVoice}
@@ -280,6 +299,7 @@ const VoiceNavigation = () => {
             <span>"Show Projects"</span>
             <span>"Contact section"</span>
             <span>"My Skills"</span>
+            <span>"Stop" to exit</span>
           </div>
         </motion.div>
       )}
